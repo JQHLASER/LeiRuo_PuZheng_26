@@ -36,7 +36,6 @@
             this.菜单栏_main = new Sunny25.工具栏();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.点检样件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生产计数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +67,6 @@
             this.uiButton_换箱 = new Sunny25.UIButton();
             this.uiButton_尾料 = new Sunny25.UIButton();
             this.uiButton_复位 = new Sunny25.UIButton();
-            this.uiButton_清空读码 = new Sunny25.UIButton();
             this.uI_Led25_复位 = new Sunny25.UI_Led25();
             this.uI_Led25_启动 = new Sunny25.UI_Led25();
             this.三色灯_三色灯 = new Sunny25.Control25.三色灯();
@@ -76,6 +74,7 @@
             this.draw画布_工作区 = new Sunny25.Draw画布();
             this.uI_软件信息1 = new Sunny25.UI_软件信息(this.components);
             this.uiButton_清空读码 = new Sunny25.UIButton();
+            this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.菜单栏_main.SuspendLayout();
             this.tableLayoutPanel_工作区.SuspendLayout();
             this.uiPanel_工作区_右.SuspendLayout();
@@ -125,8 +124,8 @@
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刷新ToolStripMenuItem,
             this.系统设置ToolStripMenuItem,
+            this.刷新ToolStripMenuItem,
             this.点检样件ToolStripMenuItem,
             this.生产计数ToolStripMenuItem,
             this.语言ToolStripMenuItem,
@@ -142,20 +141,14 @@
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
-            // 
-            // 系统设置ToolStripMenuItem
-            // 
-            this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
-            this.系统设置ToolStripMenuItem.Text = "系统设置";
             // 
             // 点检样件ToolStripMenuItem
             // 
             this.点检样件ToolStripMenuItem.Name = "点检样件ToolStripMenuItem";
-            this.点检样件ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.点检样件ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.点检样件ToolStripMenuItem.Text = "点检样件";
             this.点检样件ToolStripMenuItem.Click += new System.EventHandler(this.点检样件ToolStripMenuItem_Click);
             // 
@@ -165,7 +158,7 @@
             this.设置ToolStripMenuItem,
             this.计数清零ToolStripMenuItem});
             this.生产计数ToolStripMenuItem.Name = "生产计数ToolStripMenuItem";
-            this.生产计数ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.生产计数ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.生产计数ToolStripMenuItem.Text = "生产计数";
             // 
             // 设置ToolStripMenuItem
@@ -185,21 +178,21 @@
             // 语言ToolStripMenuItem
             // 
             this.语言ToolStripMenuItem.Name = "语言ToolStripMenuItem";
-            this.语言ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.语言ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.语言ToolStripMenuItem.Text = "语言";
             this.语言ToolStripMenuItem.Click += new System.EventHandler(this.语言ToolStripMenuItem_Click);
             // 
             // 注册ToolStripMenuItem
             // 
             this.注册ToolStripMenuItem.Name = "注册ToolStripMenuItem";
-            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.注册ToolStripMenuItem.Text = "注册";
             this.注册ToolStripMenuItem.Click += new System.EventHandler(this.注册ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -219,14 +212,14 @@
             // 管理ToolStripMenuItem
             // 
             this.管理ToolStripMenuItem.Name = "管理ToolStripMenuItem";
-            this.管理ToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.管理ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.管理ToolStripMenuItem.Text = "管理";
             this.管理ToolStripMenuItem.Click += new System.EventHandler(this.管理ToolStripMenuItem_Click);
             // 
             // 切换ToolStripMenuItem
             // 
             this.切换ToolStripMenuItem.Name = "切换ToolStripMenuItem";
-            this.切换ToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.切换ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.切换ToolStripMenuItem.Text = "切换";
             this.切换ToolStripMenuItem.Click += new System.EventHandler(this.切换ToolStripMenuItem_Click);
             // 
@@ -538,22 +531,6 @@
             this.uiButton_复位.Text = "复位";
             this.uiButton_复位.Click += new System.EventHandler(this.uiButton_复位_Click);
             // 
-            // uiButton_清空读码
-            // 
-            this.uiButton_清空读码.Cursor = System.Windows.Forms.Cursors.Default;
-            this.uiButton_清空读码.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiButton_清空读码.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(124)))));
-            this.uiButton_清空读码.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiButton_清空读码.Location = new System.Drawing.Point(3, 277);
-            this.uiButton_清空读码.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton_清空读码.Name = "uiButton_清空读码";
-            this.uiButton_清空读码.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(124)))));
-            this.uiButton_清空读码.Size = new System.Drawing.Size(76, 60);
-            this.uiButton_清空读码.Style = Sunny25.UIStyle.深色;
-            this.uiButton_清空读码.StyleCustomMode = true;
-            this.uiButton_清空读码.TabIndex = 4;
-            this.uiButton_清空读码.Text = "清空读码";
-            // 
             // uI_Led25_复位
             // 
             this.uI_Led25_复位.BackColor = System.Drawing.Color.Transparent;
@@ -661,7 +638,11 @@
             this.draw画布_工作区.上_top边距 = 2;
             this.draw画布_工作区.使能_滚动条_X = true;
             this.draw画布_工作区.使能_滚动条_Y = true;
-            this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[0] ;
+            字体类1.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类2.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[] {
+        字体类1,
+        字体类2};
             this.draw画布_工作区.左_left边距 = 0;
             this.draw画布_工作区.控件边距_X = 20;
             this.draw画布_工作区.控件边距_Y = 20;
@@ -700,14 +681,23 @@
             // 
             this.uiButton_清空读码.Cursor = System.Windows.Forms.Cursors.Default;
             this.uiButton_清空读码.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiButton_清空读码.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
             this.uiButton_清空读码.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.uiButton_清空读码.Location = new System.Drawing.Point(3, 277);
             this.uiButton_清空读码.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_清空读码.Name = "uiButton_清空读码";
+            this.uiButton_清空读码.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
             this.uiButton_清空读码.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_清空读码.Style = Sunny25.UIStyle.深色1;
             this.uiButton_清空读码.StyleCustomMode = true;
             this.uiButton_清空读码.TabIndex = 4;
             this.uiButton_清空读码.Text = "清空读码";
+            // 
+            // 系统设置ToolStripMenuItem
+            // 
+            this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.系统设置ToolStripMenuItem.Text = "系统设置";
             // 
             // Form_main
             // 
@@ -787,7 +777,7 @@
         public System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton_测试;
         public System.Windows.Forms.ToolStripMenuItem 点检样件ToolStripMenuItem;
         public Sunny25.UI_Led25 uI_Led25_复位;
-        public System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
         public Sunny25.UIButton uiButton_清空读码;
+        public System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
     }
 }
