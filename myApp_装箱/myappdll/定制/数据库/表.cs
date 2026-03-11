@@ -33,7 +33,34 @@ namespace myappdll
         }
 
 
+        /*
+         //注:索引时必须SN条形码在最前面,否则防重查询时会有点慢
+         //需要索引的字段
+            SN条码
+            拖条码
+            箱条码
+            机台代码
+            时间
+            机种
 
+
+         CREATE TABLE dataZX
+            (                 
+                   id                  [bigint] IDENTITY(1, 1)  PRIMARY KEY  //自增长主键 （从1开始，每次+1）
+                   拖条码              [varchar](255) NULL,
+                   箱条码              [varchar](255) NULL,
+                   SN条码              [varchar](255) NULL,
+                   机种                [varchar](255) NULL,
+                   机台代码            [varchar](255) NULL,
+                   时间                [varchar](255) NULL,
+                   每盘数量            [int]  NULL,
+                   每箱盘数            [int]  NULL,
+                   每箱数量            [int]  NULL,
+                   每拖箱数            [int]  NULL,
+                   备注                [varchar](255) NULL,
+            );
+
+         */
 
 
 
