@@ -1,0 +1,12 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/myApp_装箱/.vs/myApp
+/myApp_装箱/bin/Release/net8.0-windows
+/myApp_装箱/obj
+*.xml
+*.xsd
+/myApp_装箱/myappdll/bin/Release
+/myApp_装箱/myappdll/obj
+/.vs

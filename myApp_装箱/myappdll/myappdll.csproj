@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06590BE0-F209-4354-BEFB-4249E5758D60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>myappdll</RootNamespace>
+    <AssemblyName>myappdll</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.6.0.0\lib\netstandard2.0\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="mainclassqf">
+      <HintPath>..\..\..\..\..\..\..\..\QiFeng Work\BaiduSyncdisk\C#\QF class 2025\class基础\mainclassqf\bin\Release\mainclassqf.dll</HintPath>
+    </Reference>
+    <Reference Include="mainclassSoft">
+      <HintPath>..\..\..\..\..\..\..\..\QiFeng Work\BaiduSyncdisk\C#\QF class 2025\class基础\mainclassSoft\bin\Release\mainclassSoft.dll</HintPath>
+    </Reference>
+    <Reference Include="mainIndustryqf">
+      <HintPath>..\..\..\..\..\..\..\..\QiFeng Work\BaiduSyncdisk\C#\QF class 2025\class基础\mainIndustryqf\bin\Release\mainIndustryqf.dll</HintPath>
+    </Reference>
+    <Reference Include="mainWork25">
+      <HintPath>..\..\..\..\..\..\..\..\QiFeng Work\BaiduSyncdisk\C#\QF class 2025\class基础\mainWork25\bin\Release\mainWork25.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\2025\MainClass25\MainClass.2025\qfmain\bin\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SqlSugar">
+      <HintPath>..\..\..\..\..\..\..\2025\MainClass25\MainClass.2025\qfSqlSugar\bin\Release\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="SunnyUI25">
+      <HintPath>..\..\..\..\..\..\..\..\QiFeng Work\BaiduSyncdisk\C#\QF class 2025\class基础\SunnyUI\Bin\SunnyUI25.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IO\IO_Zauto.cs" />
+    <Compile Include="IO\IO_ZKW.cs" />
+    <Compile Include="Main\页面设置\页面设置_main.cs" />
+    <Compile Include="定制\Csv.cs" />
+    <Compile Include="定制\Form_尾料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\Form_尾料.Designer.cs">
+      <DependentUpon>Form_尾料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IO\IO 信息\IO_Address.cs" />
+    <Compile Include="IO\IO 信息\IO_Value.cs" />
+    <Compile Include="定制\class\工件\Form_工件_设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\class\工件\Form_工件_设置.Designer.cs">
+      <DependentUpon>Form_工件_设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="定制\Mes\mes.cs" />
+    <Compile Include="定制\Mes\mes_数据结构.cs" />
+    <Compile Include="定制\图像_标注\Form_图像标注_显示.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\图像_标注\Form_图像标注_显示.Designer.cs">
+      <DependentUpon>Form_图像标注_显示.cs</DependentUpon>
+    </Compile>
+    <Compile Include="定制\图像_标注\Form_图像标注_设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\图像_标注\Form_图像标注_设置.Designer.cs">
+      <DependentUpon>Form_图像标注_设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="定制\图像_标注\图像.cs" />
+    <Compile Include="定制\工件.cs" />
+    <Compile Include="定制\class\工件\文件.cs" />
+    <Compile Include="定制\手持扫码枪.cs" />
+    <Compile Include="定制\打印.cs" />
+    <Compile Include="定制\数据库\dataBase.cs" />
+    <Compile Include="定制\数据库\Form_数据库_查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\数据库\Form_数据库_查询.Designer.cs">
+      <DependentUpon>Form_数据库_查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="定制\数据库\表.cs" />
+    <Compile Include="定制\点检样件_\Form_点检样件_.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\点检样件_\Form_点检样件_.Designer.cs">
+      <DependentUpon>Form_点检样件_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="定制\点检样件_\点检样件.cs" />
+    <Compile Include="定制\系统参数\Form_系统参数.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="定制\系统参数\Form_系统参数.Designer.cs">
+      <DependentUpon>Form_系统参数.cs</DependentUpon>
+    </Compile>
+    <Compile Include="定制\系统参数\系统类_myApp.cs" />
+    <Compile Include="定制\编码.cs" />
+    <Compile Include="定制\读码器.cs" />
+    <Compile Include="工作加工\加工.cs" />
+    <Compile Include="工作加工\工作_事件_.cs" />
+    <Compile Include="工作加工\计算.cs" />
+    <Compile Include="系统\Err.cs" />
+    <Compile Include="系统\Language.cs" />
+    <Compile Include="系统\Log.cs" />
+    <Compile Include="Main\myApp_Main.cs" />
+    <Compile Include="Main\Form_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Form_main.Designer.cs">
+      <DependentUpon>Form_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统\功能.cs" />
+    <Compile Include="工作加工\工作.cs" />
+    <Compile Include="系统\显示.cs" />
+    <Compile Include="系统\生产计数.cs" />
+    <Compile Include="系统\用户_.cs" />
+    <Compile Include="系统\申明.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="系统\系统事件.cs" />
+    <Compile Include="定制\class\编码\编码25.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Main\Form_main.resx">
+      <DependentUpon>Form_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\class\工件\Form_工件_设置.resx">
+      <DependentUpon>Form_工件_设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\Form_尾料.resx">
+      <DependentUpon>Form_尾料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\图像_标注\Form_图像标注_显示.resx">
+      <DependentUpon>Form_图像标注_显示.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\图像_标注\Form_图像标注_设置.resx">
+      <DependentUpon>Form_图像标注_设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\数据库\Form_数据库_查询.resx">
+      <DependentUpon>Form_数据库_查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\点检样件_\Form_点检样件_.resx">
+      <DependentUpon>Form_点检样件_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="定制\系统参数\Form_系统参数.resx">
+      <DependentUpon>Form_系统参数.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>del "$(TargetDir)*.xml" /q
+rd /s /q "$(ProjectDir)obj</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Fody.6.8.2\build\Fody.targets" Condition="Exists('..\packages\Fody.6.8.2\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.8.2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.8.2\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.6.0.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.6.0.0\build\Costura.Fody.targets')" />
+</Project>

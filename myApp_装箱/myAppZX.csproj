@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>商标.ico</ApplicationIcon>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="myappdll\**" />
+    <EmbeddedResource Remove="myappdll\**" />
+    <None Remove="myappdll\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="商标.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0-dev-02301" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.211" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+    <PackageReference Include="System.IO.Ports" Version="10.0.0-preview.3.25171.5" />
+    <PackageReference Include="System.Security.Permissions" Version="10.0.1" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="10.0.0-preview.3.25171.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="myappdll\myappdll.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Seagull.BarTender.Print">
+      <HintPath>..\..\..\..\..\..\文件资料类\工业类\打印机\Bartender\Bartender 2016\DLL OK的\Seagull.BarTender.Print.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="del &quot;$(TargetDir)*.xml&quot; /q&#xD;&#xA; " />
+  </Target>
+
+</Project>
