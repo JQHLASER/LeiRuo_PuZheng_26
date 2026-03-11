@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main));
-            Sunny25.Draw画布.字体类 字体类3 = new Sunny25.Draw画布.字体类();
-            Sunny25.Draw画布.字体类 字体类4 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类1 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类2 = new Sunny25.Draw画布.字体类();
             this.功能栏1 = new Sunny25.功能栏();
             this.菜单栏_main = new Sunny25.工具栏();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -68,6 +68,7 @@
             this.uiButton_换箱 = new Sunny25.UIButton();
             this.uiButton_尾料 = new Sunny25.UIButton();
             this.uiButton_复位 = new Sunny25.UIButton();
+            this.uiButton_清空读码 = new Sunny25.UIButton();
             this.uI_Led25_复位 = new Sunny25.UI_Led25();
             this.uI_Led25_启动 = new Sunny25.UI_Led25();
             this.三色灯_三色灯 = new Sunny25.Control25.三色灯();
@@ -537,6 +538,22 @@
             this.uiButton_复位.Text = "复位";
             this.uiButton_复位.Click += new System.EventHandler(this.uiButton_复位_Click);
             // 
+            // uiButton_清空读码
+            // 
+            this.uiButton_清空读码.Cursor = System.Windows.Forms.Cursors.Default;
+            this.uiButton_清空读码.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiButton_清空读码.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(124)))));
+            this.uiButton_清空读码.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.uiButton_清空读码.Location = new System.Drawing.Point(3, 277);
+            this.uiButton_清空读码.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton_清空读码.Name = "uiButton_清空读码";
+            this.uiButton_清空读码.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(124)))));
+            this.uiButton_清空读码.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_清空读码.Style = Sunny25.UIStyle.深色;
+            this.uiButton_清空读码.StyleCustomMode = true;
+            this.uiButton_清空读码.TabIndex = 4;
+            this.uiButton_清空读码.Text = "清空读码";
+            // 
             // uI_Led25_复位
             // 
             this.uI_Led25_复位.BackColor = System.Drawing.Color.Transparent;
@@ -644,11 +661,7 @@
             this.draw画布_工作区.上_top边距 = 2;
             this.draw画布_工作区.使能_滚动条_X = true;
             this.draw画布_工作区.使能_滚动条_Y = true;
-            字体类3.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            字体类4.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[] {
-        字体类3,
-        字体类4};
+            this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[0] ;
             this.draw画布_工作区.左_left边距 = 0;
             this.draw画布_工作区.控件边距_X = 20;
             this.draw画布_工作区.控件边距_Y = 20;
