@@ -661,7 +661,11 @@
             this.draw画布_工作区.上_top边距 = 2;
             this.draw画布_工作区.使能_滚动条_X = true;
             this.draw画布_工作区.使能_滚动条_Y = true;
-            this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[0] ;
+            字体类3.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类4.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[] {
+        字体类3,
+        字体类4};
             this.draw画布_工作区.左_left边距 = 0;
             this.draw画布_工作区.控件边距_X = 20;
             this.draw画布_工作区.控件边距_Y = 20;
