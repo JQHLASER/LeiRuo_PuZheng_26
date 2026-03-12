@@ -47,7 +47,7 @@ namespace myappdll
 
             this.系统设置ToolStripMenuItem.Click += (s, e) =>
             {
-                if (用户_ .user_sys .Config .当前登陆的用户信息 .权限 >=用户.enum权限.技术员 )
+                if (用户_ .user_sys .Config .当前登陆的用户信息 .权限<=用户.enum权限.技术员   )
                 {
                     MessageBox.Show("用户权限低", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

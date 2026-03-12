@@ -48,7 +48,7 @@ namespace myappdll
 
          CREATE TABLE dataZX
             (                 
-                   id                  [bigint] IDENTITY(1, 1)  PRIMARY KEY  //自增长主键 （从1开始，每次+1）
+                   id                  [bigint] IDENTITY(1, 1)  PRIMARY KEY   ，
                    拖条码              [varchar](255) NULL,
                    箱条码              [varchar](255) NULL,
                    SN条码              [varchar](255) NULL,
@@ -59,7 +59,7 @@ namespace myappdll
                    每箱盘数            [int]  NULL,
                    每箱数量            [int]  NULL,
                    每拖箱数            [int]  NULL,
-                   备注                [varchar](255) NULL,
+                   备注                [varchar](255) NULL
             );
 
          */

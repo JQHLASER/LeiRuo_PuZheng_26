@@ -23,7 +23,10 @@ namespace myappdll
         {
             string path = mainclassSoft.系统类.Config.File_MyAppSys_Config + "\\手持扫码枪.txt";
             tcp_sys.Config.path = path;
-            tcp_sys.参数读写(0);
+
+            tcp_sys.Config.参数.IP = "192.168.100.100";
+            tcp_sys.Config.参数.Port = 9004;
+            tcp_sys.参数读写(1);
 
             tcp_sys.Action_接收数据 += async (data) =>
             {
@@ -55,6 +58,7 @@ namespace myappdll
                     }
                 }
             };
+
             tcp_sys.Connect连接(out string msgErr);
             isInistiall = true;
         }
@@ -75,7 +79,7 @@ namespace myappdll
             Form_main.form_Main.Invoke((Action)(() =>
             {
                 Form_main.form_Main.uiButton_清空读码.Visible = 系统类_myApp.Config.参数.使能_手持扫码枪;
-            })); 
+            }));
 
             if (!系统类_myApp.Config.参数.使能_手持扫码枪)
             {
@@ -85,6 +89,8 @@ namespace myappdll
             lst.Add(new string[] { "-1", "手持扫码枪未连接" });
             lst.Add(new string[] { "1", "手持扫码枪连接中" });
             申明.myForm25_sys.标题栏显状态_添加显示(tcp_sys.Config.连接状态, lst);
+
+          //  Log.Add(true, tcp_sys.Config.参数.IP);
         }
 
         internal static bool Err_扫码中重码(string value, out string msgErr, bool Is错误时弹窗 = true)

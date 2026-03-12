@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,16 +27,21 @@ namespace myappdll
             internal static info_Main 参数 { set; get; } = new info_Main();
         }
 
+        private static  readonly object _lock = new object();
+
         /// <summary>
         /// 初始化
         /// </summary>
         /// <param name="model"></param>
         internal static void Initiall(ushort model)
         {
-            string path = mainclassSoft.系统类.Config.File_MyAppSys_Config + "\\systemCfg.txt";
-            info_Main info = Config.参数;
-            new mainclassSoft.系统类().读写参数(ref info, model, path, out string msgErr);
-            Config.参数 = info;
+            lock (_lock)
+            {
+                string path = mainclassSoft.系统类.Config.File_MyAppSys_Config + "\\systemCfg.txt";
+                info_Main info = Config.参数;
+                new mainclassSoft.系统类().读写参数(ref info, model, path, out string msgErr);
+                Config.参数 = info;
+            }
         }
 
 

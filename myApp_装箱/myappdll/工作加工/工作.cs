@@ -1,7 +1,7 @@
 ﻿using mainclassqf;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
- 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +62,10 @@ namespace myappdll
             {
                 return;
             }
-
+            else if (系统类_myApp.Config.参数.使能_手持扫码枪)
+            {
+                Log.Add(true, $"扫码: {string.Join(",", 手持扫码枪._读码内容)}");
+            }
             DateTime dates = DateTime.Now;
             bool rt = true;
             工作_事件_.On_加工(true, rt, dates);
@@ -223,10 +226,10 @@ namespace myappdll
                 }
                 else if (item == "mes交互")
                 {
-                    if (!系统类_myApp .Config .参数 .使能_Mes )
+                    if (!系统类_myApp.Config.参数.使能_Mes)
                     {
                         continue;
-                    } 
+                    }
 
                     string[] sn = lst不为空的码.Select(u => u.码内容).ToArray();
                     var rtMes = mes.上传(new mes_数据结构._上传_
@@ -350,7 +353,7 @@ namespace myappdll
             return rt;
         }
 
-    internal     static bool Err_编辑中(out string msgErr)
+        internal static bool Err_编辑中(out string msgErr)
         {
             bool rt = true;
             msgErr = "";

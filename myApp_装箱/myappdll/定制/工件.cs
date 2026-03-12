@@ -109,8 +109,11 @@ namespace myappdll
             if (rt)
             {
                 //读码器.读取图像(gj_sys.Config.文件.读码图像名称, out Bitmap img);
-
-                rt = 读码器.切换模板();
+                if (!系统类_myApp.Config.参数.使能_手持扫码枪)
+                {
+                    rt = 读码器.切换模板();
+                }
+             
             }
 
             return rt;

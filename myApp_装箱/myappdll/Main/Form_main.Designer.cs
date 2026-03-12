@@ -141,20 +141,20 @@
             // 系统设置ToolStripMenuItem
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.系统设置ToolStripMenuItem.Text = "系统设置";
             // 
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
             // 
             // 点检样件ToolStripMenuItem
             // 
             this.点检样件ToolStripMenuItem.Name = "点检样件ToolStripMenuItem";
-            this.点检样件ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.点检样件ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.点检样件ToolStripMenuItem.Text = "点检样件";
             this.点检样件ToolStripMenuItem.Click += new System.EventHandler(this.点检样件ToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@
             this.设置ToolStripMenuItem,
             this.计数清零ToolStripMenuItem});
             this.生产计数ToolStripMenuItem.Name = "生产计数ToolStripMenuItem";
-            this.生产计数ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.生产计数ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.生产计数ToolStripMenuItem.Text = "生产计数";
             // 
             // 设置ToolStripMenuItem
@@ -184,21 +184,21 @@
             // 语言ToolStripMenuItem
             // 
             this.语言ToolStripMenuItem.Name = "语言ToolStripMenuItem";
-            this.语言ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.语言ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.语言ToolStripMenuItem.Text = "语言";
             this.语言ToolStripMenuItem.Click += new System.EventHandler(this.语言ToolStripMenuItem_Click);
             // 
             // 注册ToolStripMenuItem
             // 
             this.注册ToolStripMenuItem.Name = "注册ToolStripMenuItem";
-            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.注册ToolStripMenuItem.Text = "注册";
             this.注册ToolStripMenuItem.Click += new System.EventHandler(this.注册ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -551,7 +551,7 @@
             this.uiButton_清空读码.Style = Sunny25.UIStyle.深色;
             this.uiButton_清空读码.StyleCustomMode = true;
             this.uiButton_清空读码.TabIndex = 4;
-            this.uiButton_清空读码.Text = "清空读码";
+            this.uiButton_清空读码.Text = "清空扫码";
             // 
             // uI_Led25_复位
             // 

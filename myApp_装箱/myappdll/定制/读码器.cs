@@ -42,8 +42,8 @@ namespace myappdll
 
         public class info_参数_
         {
-            public string ip { set; get; } = "127.0.0.1";
-            public int port { set; get; } = 2001;
+            public string ip { set; get; } = "192.168.100.100";
+            public int port { set; get; } = 9004;
 
             public string 启动读码 { set; get; } = "LON";
             public string 停止读码 { set; get; } = "LOFF";
@@ -74,6 +74,12 @@ namespace myappdll
 
         internal static void 初始化()
         {
+            if (系统类_myApp.Config.参数.使能_手持扫码枪)
+            {
+                return;
+            }
+
+
             string path = mainclassSoft.系统类.Config.File_MyAppSys_Config + "\\readCode.cfg";
             info_参数_ info = Config.参数;
             new mainclassSoft.系统类().读写参数(ref info, 1, path, out string msgErr);
@@ -84,7 +90,7 @@ namespace myappdll
             tcp_sys.Config.参数.IP = Config.参数.ip;
             tcp_sys.Config.参数.Port = Config.参数.port;
 
-            tcp_sys.参数读写(0);
+            tcp_sys.参数读写(1);
 
             tcp_sys.Action_接收数据 += On_接收数据;
             tcp_sys.Connect连接(out msgErr);
@@ -99,7 +105,8 @@ namespace myappdll
         static bool isInistiall = false;
         internal static void 释放()
         {
-            if (!isInistiall )
+
+            if (!isInistiall)
             {
                 return;
             }
@@ -112,6 +119,10 @@ namespace myappdll
 
         internal static void 标题栏状态()
         {
+            if ( 系统类_myApp.Config.参数.使能_手持扫码枪)
+            {
+                return;
+            }
             List<string[]> lst = new List<string[]>();
             lst.Add(new string[] { "-1", "读码器未连接" });
             lst.Add(new string[] { "1", "读码器连接中" });
@@ -142,9 +153,9 @@ namespace myappdll
 
         static void 发送(string 指令)
         {
-            if (tcp_sys .Config .连接状态 !=0)
+            if (tcp_sys.Config.连接状态 != 0)
             {
-                return ;
+                return;
             }
 
             string str = $"{指令}\r\n";
@@ -161,7 +172,7 @@ namespace myappdll
             lst不为空的码信息 = new List<info_码信息_>();
             msgErr = string.Empty;
             bool rt = true;
-
+             
             List<string> lstWork = new List<string>();
             lstWork.Add("Err");
             lstWork.Add("切换模板");
@@ -334,7 +345,7 @@ namespace myappdll
             bool rt = true;
             string msgErr = string.Empty;
 
-            if (Config.缓存_切换模板指令.Trim () != 工件.gj_sys.Config.文件.读码指令.Trim())
+            if (Config.缓存_切换模板指令.Trim() != 工件.gj_sys.Config.文件.读码指令.Trim())
             {
                 #region 读码
 
@@ -374,7 +385,7 @@ namespace myappdll
                 Config.接收内容 = string.Empty;
                 Config.通讯辅助 = enum通讯辅助.等待接收;
 
-                Log .Add (rt, msgErr);
+                Log.Add(rt, msgErr);
                 #endregion
 
             }

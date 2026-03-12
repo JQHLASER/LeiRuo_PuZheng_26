@@ -43,7 +43,7 @@ namespace myappdll
 
             if (系统类_myApp.Config.参数.使能_手持扫码枪)
             {
-                lst.Add($"读码数量:{手持扫码枪._读码内容.Count}");
+                lst.Add($"扫码数量:{手持扫码枪._读码内容.Count}");
             }
         }
 
@@ -176,17 +176,16 @@ namespace myappdll
 
 
                         #region 已注册,初始化
+                        系统类_myApp.Initiall(1);
 
                         IO_Zauto.初始化();
 
                         Task t1 = Task.Run(() => { 读码器.初始化(); });
                         Task t2 = Task.Run(() => { dataBase.初始化(); });
-                        手持扫码枪.初始化();
-
-
+                        Task t3 = Task.Run(() => {   手持扫码枪.初始化();  });
                         //Task.Run(() => { });
 
-                        await Task.WhenAll(t1, t2);
+                        await Task.WhenAll(t1, t2,t3);
                         new Thread(() => { 工件.启动时自动加载工件(); }) { IsBackground = true }.Start();
 
 
