@@ -1,4 +1,5 @@
 ﻿
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace myappdll
         /// </summary>
         public class dataZX
         {
-
+            [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
+            public int id { set; get; }
             public string 拖条码 { set; get; } = "";
             public string 箱条码 { set; get; } = "";
             public string SN条码 { set; get; } = "";
