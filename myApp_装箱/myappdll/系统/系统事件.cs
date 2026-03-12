@@ -122,7 +122,7 @@ namespace myappdll
                 if (enum权限 >= 用户.enum权限.管理员)
                 {
                     Form_main.form_Main.加工ToolStripMenuItem.Enabled = true;
-                    Form_main.form_Main.系统设置ToolStripMenuItem.Visible = true;
+                   
                 }
 
                 Form_main.form_Main.刷新ToolStripMenuItem.Enabled = true;
@@ -137,7 +137,7 @@ namespace myappdll
                 Form_main.form_Main.打印ToolStripMenuItem.Enabled = true;
                 Form_main.form_Main.点检样件ToolStripMenuItem.Enabled = true;
 
-
+                Form_main.form_Main.系统设置ToolStripMenuItem.Visible = true;
 
 
             }

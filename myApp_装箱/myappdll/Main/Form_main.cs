@@ -47,9 +47,16 @@ namespace myappdll
 
             this.系统设置ToolStripMenuItem.Click += (s, e) =>
             {
+                if (用户_ .user_sys .Config .当前登陆的用户信息 .权限 >=用户.enum权限.技术员 )
+                {
+                    MessageBox.Show("用户权限低", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 using (Form_系统参数 forms = new Form_系统参数())
                 {
+                    Log.Add(true, $"手动,进入系统设置窗体....");
                     forms.ShowDialog();
+                    Log.Add(true, $"手动,关闭系统设置窗体");
                 }
             };
             this.uiButton_清空读码.Click += (s, e) =>
