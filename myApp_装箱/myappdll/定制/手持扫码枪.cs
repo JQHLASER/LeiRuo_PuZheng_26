@@ -57,6 +57,7 @@ namespace myappdll
                         await 加工.启动加工();
                     }
                 }
+               
             };
 
             tcp_sys.Connect连接(out string msgErr);

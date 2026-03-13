@@ -259,6 +259,11 @@ namespace myappdll
                 }
             }
 
+            if (系统类_myApp.Config.参数.使能_手持扫码枪)
+            {
+                手持扫码枪._读码内容.Clear();
+            }
+
             if (rt)
             {
                 显示.加工条(Sunny25.LED_显示条.enum状态.Green, "OK,加工结束");

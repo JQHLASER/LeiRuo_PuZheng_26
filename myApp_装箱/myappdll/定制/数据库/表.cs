@@ -48,7 +48,7 @@ namespace myappdll
 
          CREATE TABLE dataZX
             (                 
-                   id                  [bigint] IDENTITY(1, 1)  PRIMARY KEY   ，
+                   id                  [bigint] IDENTITY(1, 1)  PRIMARY KEY,
                    拖条码              [varchar](255) NULL,
                    箱条码              [varchar](255) NULL,
                    SN条码              [varchar](255) NULL,
