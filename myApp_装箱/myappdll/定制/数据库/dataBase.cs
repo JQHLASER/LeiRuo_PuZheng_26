@@ -172,6 +172,69 @@ namespace myappdll
             return rt;
         }
 
+        /// <summary>
+        /// true:正常,false:失败或重码
+        /// <para>手待扫码枪时使用</para>
+        /// </summary> 
+        internal static bool 查询_防重_SN条码(string sn, out List<表.dataZX> lst, out string msgErr)
+        {
+           
+       
+
+            bool rt = true;
+        
+            msgErr = string.Empty;
+            string sqlStr = $"select SN条码 from dataZX where 1=1 and SN条码 ='{sn}' ";
+            //sqlStr += "(";
+            //for (int i = 0; i < lstSN条码.Count; i++)
+            //{
+            //    if (i == 0)
+            //    {
+            //        sqlStr += $"'{lstSN条码[i]}'";
+            //    }
+            //    else
+            //    {
+            //        sqlStr += $",'{lstSN条码[i]}'";
+            //    }
+            //}
+            //sqlStr += ")";
+
+
+            //List<string> sns = new List<string>();
+            //foreach (var s in lst不为空的码信息)
+            //{
+            //    sns.Add(s.码内容);
+            //} 
+
+            //var list = db_sys.Db.Queryable<表.dataZX>()
+            // .Where(d => sns.Contains(d.SN条码))
+            // .Select(d => new { d.SN条码 }) // 不要 *
+            // .ToList();
+
+
+            rt = sql_sys .查询_SQL语句(sqlStr, out lst, out msgErr);
+
+            if (rt && lst.Count > 0)
+            {
+                rt = false; 
+                msgErr = $"重码, {sn}";
+                Log.Add(rt, msgErr );
+            }
+            else if (!rt)
+            {
+                Log.Add(rt, $"数据库,查询SN条码,NG,{msgErr}");
+            }
+             
+            return rt;
+        }
+
+
+
+
+
+
+
+
         internal static bool 查询_防重_拖条码(string 拖条码, out List<表.dataZX> lst, out string msgErr)
         {
             bool rt = true;

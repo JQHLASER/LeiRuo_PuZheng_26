@@ -28,40 +28,9 @@ namespace myappdll
             tcp_sys.Config.参数.Port = 9004;
             tcp_sys.参数读写(1);
 
-            tcp_sys.Action_接收数据 += async (data) =>
-            {
-                if (!工作.Err_编辑中(out string msgErr1) || !Err.工作中(out msgErr1) || !Err.系统忙(申明.myForm25_sys, out msgErr1)
-                || !Err.系统报警 (申明.myForm25_sys, out msgErr1))
-                {
-                    IO_Zauto.Out_三色灯(IO_Zauto.enum三色灯.红灯, true);
-                    return;
-                }
+            tcp_sys.Action_接收数据 += async (data) => await on_扫码处理(data);
 
-
-                string str = Encoding.Default.GetString(data).Trim();
-                if (用户_.user_sys.Config.当前登陆的用户信息.权限 != 用户.enum权限.操作员 &&
-                          用户_.user_sys.Config.当前登陆的用户信息.权限 != 用户.enum权限.开发者)
-                {
-                    Log.Add(false, $"扫码枪扫码: 请切换到操作员用户", Log.enumLogState.All);
-                    IO_Zauto.Out_三色灯(IO_Zauto.enum三色灯.红灯, true);
-                    return;
-                }
-                Log.Add(true, $"扫码枪扫码,接收:{str}");
-                var rt = Err_扫码中重码(str, out msgErr1, true); //检测扫码中是否有重码
-                if (rt)
-                {
-                    _读码内容.Add(str);
-                    if (_读码内容.Count == 工件.gj_sys.Config.文件.数量.每盘个数)
-                    {
-                        Log.Clear();
-                        Log.Add(true, $"扫码枪扫码,数量达到每盘个数,启动触发....<{_读码内容.Count}>", Log.enumLogState.All);
-                        await 加工.启动加工();
-                    }
-                }
-               
-            };
-
-            tcp_sys.Connect连接(out string msgErr);
+            tcp_sys.Connect连接Async();
             isInistiall = true;
         }
         static bool isInistiall = false;
@@ -92,7 +61,7 @@ namespace myappdll
             lst.Add(new string[] { "1", "手持扫码枪连接中" });
             申明.myForm25_sys.标题栏显状态_添加显示(tcp_sys.Config.连接状态, lst);
 
-          //  Log.Add(true, tcp_sys.Config.参数.IP);
+            //  Log.Add(true, tcp_sys.Config.参数.IP);
         }
 
         internal static bool Err_扫码中重码(string value, out string msgErr, bool Is错误时弹窗 = true)
@@ -114,5 +83,104 @@ namespace myappdll
             return true;
         }
 
+
+        static async Task on_扫码处理(byte[] data)
+        {
+            if (!工作.Err_编辑中(out string msgErr1) || !Err.工作中(out msgErr1) || !Err.系统忙(申明.myForm25_sys, out msgErr1)
+              || !Err.系统报警(申明.myForm25_sys, out msgErr1))
+            {
+                IO_Zauto.Out_三色灯(IO_Zauto.enum三色灯.红灯, true);
+                return;
+            }
+
+            string[] work = new string[]
+            {
+                "权限",
+                "接收内容日志",
+                "是否在当前盘中重码",
+                "是否在数据库中重码",
+                "是否混料",
+                "点检样件",
+                
+            };
+            string str = Encoding.Default.GetString(data).Trim();
+
+
+
+            bool rt = true;
+            string msg = "";
+            foreach (var s in work)
+            {
+                if (!rt)
+                {
+                    break;
+                }
+                else if (s == "接收内容日志")
+                {
+                    Log.Add(true, $"扫码枪扫码,接收:{str}");
+                }
+                else if (s == "是否在当前盘中重码")
+                {
+                    #region 是否在当前盘中重码
+                    rt = Err_扫码中重码(str, out msgErr1, true); //检测扫码中是否有重码
+                    #endregion
+                }
+                else if (s == "是否在数据库中重码")
+                {
+                    #region 在数据库中重码检测
+
+                    rt = dataBase.查询_防重_SN条码(str, out List<表.dataZX> lst, out msg);
+
+                    #endregion
+                }
+                else if (s == "是否混料")
+                {
+                    rt = 计算.混料检测_手持扫码枪(str, out msg);
+                }
+                else if (s == "权限")
+                {
+                    #region 权限
+
+                    if (用户_.user_sys.Config.当前登陆的用户信息.权限 != 用户.enum权限.操作员 &&
+                   用户_.user_sys.Config.当前登陆的用户信息.权限 != 用户.enum权限.开发者)
+                    {
+                        Log.Add(false, $"扫码枪扫码: 请切换到操作员用户", Log.enumLogState.All);
+                        IO_Zauto.Out_三色灯(IO_Zauto.enum三色灯.红灯, true);
+                        rt = false;
+                    }
+
+                    #endregion
+                } 
+                else if (s == "点检样件")
+                {
+                    #region 点检样件
+                    rt = 计算.点检样品(str, out msg);
+                    #endregion
+                }
+            }
+
+
+            if (!rt)
+            {
+                IO_Zauto.Out_三色灯(IO_Zauto.enum三色灯.红灯, true);
+            }
+            else
+            {
+                #region 计数/工作
+
+                _读码内容.Add(str);
+                if (_读码内容.Count == 工件.gj_sys.Config.文件.数量.每盘个数)
+                {
+                    Log.Clear();
+                    Log.Add(true, $"扫码枪扫码,数量达到每盘个数,启动触发....<{_读码内容.Count}>", Log.enumLogState.All);
+                    await 加工.启动加工();
+                }
+
+                #endregion
+            }
+
+
+
+        }
     }
 }

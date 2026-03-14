@@ -445,7 +445,7 @@ namespace myappdll
                         lst原始码.Clear();
                         lst不为空的码.Clear();
                         for (global::System.Int32 i = 0; i < 手持扫码枪._读码内容.Count; i++)
-                        { 
+                        {
                             lst原始码.Add(new 读码器.info_码信息_
                             {
                                 索引 = i,
@@ -661,6 +661,9 @@ namespace myappdll
             return rt;
         }
 
+
+
+
         /// <summary>
         /// 防止点检样品混入
         /// </summary>
@@ -810,6 +813,76 @@ namespace myappdll
             }
             return 结果;
         }
+
+
+
+
+
+        #region 手持扫码枪
+
+        /// <summary>
+        /// 手持扫码枪混料检测,因为手持扫码枪没有每盘数量的概念,所以只要读到的码有一个不符合SN校验值,就判定为混料
+        /// </summary> 
+        internal static bool 混料检测_手持扫码枪(string 码内容, out string msgErr)
+        {
+            bool rt = true;
+            msgErr = string.Empty;
+            // List<string> lst混料码 = new List<string>();
+            //二维码/第4/5/6位三位是否为SN校验值
+
+            string Vcode = new mainclassqf.文本().获取(码内容.Trim(), 3, 3);//第4/5/6位
+            if (Vcode != 工件.gj_sys.Config.文件.SN码校验)
+            {
+                msgErr = $"混料检测,NG,系统检测到混料,<机台代码: {工件.gj_sys.Config.文件.SN码校验}><{Vcode}><{码内容}>";
+                rt = false;
+                Log.Add(rt, msgErr);
+                //  lst混料码.Add(sM.码内容);
+            }
+            //else
+            //{
+            //    msgErr = $"混料检测,OK,<机台代码: {工件.gj_sys.Config.文件.SN码校验}><{Vcode}><{码内容}>";
+            //    Log.Add(true, msgErr);
+            //}
+
+
+            //if (!rt && lst混料码.Count > 0)
+            //{
+            //    查看_读码器图像_混料(sM, lst混料码, "混料");
+            //}
+            return rt;
+        }
+
+
+        /// <summary>
+        /// 防止点检样品混入
+        /// </summary>
+        /// <param name="lst不为空的码"></param>
+        /// <param name="msgErr"></param>
+        /// <returns></returns>
+        internal static bool 点检样品(string sn, out string msgErr)
+        {
+            bool rt = true;
+            msgErr = string.Empty; 
+            List<string> lst = 点检样件.Config.点检数据.ToList(); 
+            if (lst.IndexOf(sn) > -1)
+            {
+                rt = false;
+                msgErr = $"NG,系统检测到点检样件,<{sn}>";
+                Log.Add(rt, msgErr); 
+            }
+
+ 
+            return rt;
+        }
+
+
+        #endregion
+
+
+
+
+
+
 
     }
 }
