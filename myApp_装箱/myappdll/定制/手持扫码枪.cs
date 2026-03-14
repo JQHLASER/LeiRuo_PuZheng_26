@@ -30,7 +30,8 @@ namespace myappdll
 
             tcp_sys.Action_接收数据 += async (data) =>
             {
-                if (!工作.Err_编辑中(out string msgErr1) || !Err.工作中(out msgErr1) || !Err.系统忙(申明.myForm25_sys, out msgErr1))
+                if (!工作.Err_编辑中(out string msgErr1) || !Err.工作中(out msgErr1) || !Err.系统忙(申明.myForm25_sys, out msgErr1)
+                || !Err.系统报警 (申明.myForm25_sys, out msgErr1))
                 {
                     IO_Zauto.Out_三色灯(IO_Zauto.enum三色灯.红灯, true);
                     return;

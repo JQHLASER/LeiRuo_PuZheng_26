@@ -248,7 +248,8 @@ namespace myappdll
                         },
                     });
                     rt = rtMes.s;
-                    Log.Add(rt, rtMes.m);
+                    msgErr =rt? "成功": rtMes.m;
+                    Log.Add(rt,$"mes,{msgErr }");
                     if (!rt)
                     {
                         Form_main.form_Main.Invoke((Action)(() =>

@@ -27,7 +27,7 @@ namespace myappdll
                 系统类_myApp.Config.参数.设备编号 = this.textBox_设备编号.Text.Trim();
                 系统类_myApp.Initiall(0);
                 show();
-                MessageBox.Show("保存成功");
+                MessageBox.Show("保存成功,请重启软件生效");
             };
         }
         void show()
