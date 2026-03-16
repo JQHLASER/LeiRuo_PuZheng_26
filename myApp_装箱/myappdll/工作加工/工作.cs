@@ -250,12 +250,12 @@ namespace myappdll
                     });
                     rt = rtMes.s;
                     msgErr =rt? "成功": rtMes.m;
-                    Log.Add(rt,$"mes,{msgErr }");
+                    Log.Add(rt,$"mes反馈,{msgErr }");
                     if (!rt)
                     {
                         Form_main.form_Main.Invoke((Action)(() =>
                         {
-                            Sunny25.Messagebox.Show(Form_main.form_Main, rtMes.m, "Err", Sunny25.MessageboxButtons.OK, Sunny25.MessageboxStatus.Red);
+                            Sunny25.Messagebox.Show(Form_main.form_Main, $"mes反馈: {rtMes.m}", "Mes,Err", Sunny25.MessageboxButtons.OK, Sunny25.MessageboxStatus.Red);
                         }));
                     }
                 }

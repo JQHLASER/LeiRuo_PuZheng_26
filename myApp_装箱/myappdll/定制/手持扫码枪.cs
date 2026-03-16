@@ -123,7 +123,7 @@ namespace myappdll
                 {
                     #region 是否在当前盘中重码
 
-                    rt = Err_扫码中重码(str, out msgErr1, true); //检测扫码中是否有重码
+                    rt = Err_扫码中重码(str, out msgErr1, false ); //检测扫码中是否有重码
 
                     if (!rt)
                     {
