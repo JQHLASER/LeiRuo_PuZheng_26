@@ -147,6 +147,11 @@ namespace myappdll
                 else if (s == "是否混料")
                 {
                     rt = 计算.混料检测_手持扫码枪(str, out msg);
+                    if (!rt)
+                    {
+                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "混料");
+                    }
+
                 }
                 else if (s == "权限")
                 {
