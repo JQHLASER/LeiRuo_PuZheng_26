@@ -101,7 +101,7 @@ namespace myappdll
                 "是否在数据库中重码",
                 "是否混料",
                 "点检样件",
-                
+
             };
             string str = Encoding.Default.GetString(data).Trim();
 
@@ -117,12 +117,20 @@ namespace myappdll
                 }
                 else if (s == "接收内容日志")
                 {
-                    Log.Add(true, $"扫码枪扫码,接收:{str}");
+                    Log.Add(true, $"扫码枪扫码,接收:<{_读码内容.Count + 1}>{str}");
                 }
                 else if (s == "是否在当前盘中重码")
                 {
                     #region 是否在当前盘中重码
+
                     rt = Err_扫码中重码(str, out msgErr1, true); //检测扫码中是否有重码
+
+                    if (!rt)
+                    {
+                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "当前盘重码");
+                    }
+
+
                     #endregion
                 }
                 else if (s == "是否在数据库中重码")
@@ -130,7 +138,10 @@ namespace myappdll
                     #region 在数据库中重码检测
 
                     rt = dataBase.查询_防重_SN条码(str, out List<表.dataZX> lst, out msg);
-
+                    if (!rt)
+                    {
+                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "重码");
+                    }
                     #endregion
                 }
                 else if (s == "是否混料")
@@ -150,11 +161,15 @@ namespace myappdll
                     }
 
                     #endregion
-                } 
+                }
                 else if (s == "点检样件")
                 {
                     #region 点检样件
                     rt = 计算.点检样品(str, out msg);
+                    if (!rt)
+                    {
+                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "点检样品");
+                    }
                     #endregion
                 }
             }
@@ -182,5 +197,16 @@ namespace myappdll
 
 
         }
+
+        static List<读码器.info_码信息_> 原始码()
+        {
+            var lst = new List<读码器.info_码信息_>();
+            for (int i = 0; i < _读码内容.Count; i++)
+            {
+                lst.Add(new 读码器.info_码信息_ { 索引 = i, 码内容 = _读码内容[i] });
+            }
+            return lst;
+        }
+
     }
 }

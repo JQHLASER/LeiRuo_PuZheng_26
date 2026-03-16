@@ -565,7 +565,7 @@ namespace myappdll
 
         }
 
-        static void 查看_读码器图像_混料(List<读码器.info_码信息_> lst不为空的原始码, List<string> lst混料码, string 错误信息)
+        internal static void 查看_读码器图像_混料(List<读码器.info_码信息_> lst不为空的原始码, List<string> lst混料码, string 错误信息)
         {
             图像.info_绘制信息_[] MainDraw = new info_绘制信息_[0];
             解析_图像_重码(lst不为空的原始码, lst混料码, out MainDraw);
@@ -862,16 +862,16 @@ namespace myappdll
         internal static bool 点检样品(string sn, out string msgErr)
         {
             bool rt = true;
-            msgErr = string.Empty; 
-            List<string> lst = 点检样件.Config.点检数据.ToList(); 
+            msgErr = string.Empty;
+            List<string> lst = 点检样件.Config.点检数据.ToList();
             if (lst.IndexOf(sn) > -1)
             {
                 rt = false;
                 msgErr = $"NG,系统检测到点检样件,<{sn}>";
-                Log.Add(rt, msgErr); 
+                Log.Add(rt, msgErr);
             }
 
- 
+
             return rt;
         }
 
