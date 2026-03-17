@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main));
-            Sunny25.Draw画布.字体类 字体类5 = new Sunny25.Draw画布.字体类();
-            Sunny25.Draw画布.字体类 字体类6 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类7 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类8 = new Sunny25.Draw画布.字体类();
             this.功能栏1 = new Sunny25.功能栏();
             this.菜单栏_main = new Sunny25.工具栏();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -468,7 +468,7 @@
             this.flowLayoutPanel_操作按钮.Location = new System.Drawing.Point(2, 142);
             this.flowLayoutPanel_操作按钮.Name = "flowLayoutPanel_操作按钮";
             this.flowLayoutPanel_操作按钮.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel_操作按钮.Size = new System.Drawing.Size(86, 327);
+            this.flowLayoutPanel_操作按钮.Size = new System.Drawing.Size(86, 337);
             this.flowLayoutPanel_操作按钮.TabIndex = 2;
             // 
             // uiButton_换拖
@@ -662,11 +662,11 @@
             this.draw画布_工作区.上_top边距 = 2;
             this.draw画布_工作区.使能_滚动条_X = true;
             this.draw画布_工作区.使能_滚动条_Y = true;
-            字体类5.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            字体类6.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类7.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类8.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[] {
-        字体类5,
-        字体类6};
+        字体类7,
+        字体类8};
             this.draw画布_工作区.左_left边距 = 0;
             this.draw画布_工作区.控件边距_X = 20;
             this.draw画布_工作区.控件边距_Y = 20;
@@ -707,9 +707,9 @@
             this.label_手持扫码枪_扫码计数.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label_手持扫码枪_扫码计数.Font = new System.Drawing.Font("微软雅黑", 25.04348F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_手持扫码枪_扫码计数.ForeColor = System.Drawing.Color.White;
-            this.label_手持扫码枪_扫码计数.Location = new System.Drawing.Point(2, 469);
+            this.label_手持扫码枪_扫码计数.Location = new System.Drawing.Point(2, 479);
             this.label_手持扫码枪_扫码计数.Name = "label_手持扫码枪_扫码计数";
-            this.label_手持扫码枪_扫码计数.Size = new System.Drawing.Size(86, 70);
+            this.label_手持扫码枪_扫码计数.Size = new System.Drawing.Size(86, 60);
             this.label_手持扫码枪_扫码计数.TabIndex = 6;
             this.label_手持扫码枪_扫码计数.Text = "99";
             this.label_手持扫码枪_扫码计数.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -238,12 +238,12 @@ namespace myappdll
             编码.Encode_sys.标题栏状态(申明.myForm25_sys, "编码模块");
             读码器.标题栏状态();
             打印.标题栏状态();
-            dataBase.标题栏状态();
+           // dataBase.标题栏状态();
             手持扫码枪.标题栏状态();
 
             工件.标题栏状态();
 
-            IO_Zauto.窗体标题();
+          //  IO_Zauto.窗体标题();
             显示.画布();
         }
 

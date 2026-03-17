@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace myappdll
 {
-    public  class mes_数据结构
+    public class mes_数据结构
     {
         public class _上传_
         {
@@ -54,7 +54,11 @@ namespace myappdll
             /// 消息
             /// </summary>
             public string msg { set; get; } = "";
- 
+
+            /// <summary>
+            /// 不合格的Sn
+            /// </summary>
+            public string[] snlist { set; get; } = new string[0];
         }
 
 

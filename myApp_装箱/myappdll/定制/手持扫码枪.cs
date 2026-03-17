@@ -106,7 +106,7 @@ namespace myappdll
             };
             string str = Encoding.Default.GetString(data).Trim();
 
-
+         
 
             bool rt = true;
             string msg = "";
@@ -128,7 +128,7 @@ namespace myappdll
 
                     if (!rt)
                     {
-                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "当前盘重码");
+                        显示不合格图像( str , "当前盘重码");
                     }
 
 
@@ -141,7 +141,7 @@ namespace myappdll
                     rt = dataBase.查询_防重_SN条码(str, out List<表.dataZX> lst, out msg);
                     if (!rt)
                     {
-                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "重码");
+                        显示不合格图像(str,   "重码");
                     }
                     #endregion
                 }
@@ -150,7 +150,7 @@ namespace myappdll
                     rt = 计算.混料检测_手持扫码枪(str, out msg);
                     if (!rt)
                     {
-                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "混料");
+                        显示不合格图像(str, "混料");
                     }
 
                 }
@@ -174,7 +174,7 @@ namespace myappdll
                     rt = 计算.点检样品(str, out msg);
                     if (!rt)
                     {
-                        计算.查看_读码器图像_混料(原始码(), new List<string> { str }, "点检样品");
+                        显示不合格图像(str, "点检样品");
                     }
                     #endregion
                 }
@@ -204,15 +204,26 @@ namespace myappdll
 
         }
 
-        static List<读码器.info_码信息_> 原始码()
+        static void 显示不合格图像(string 当前码,string 错误标题)
         {
             var lst = new List<读码器.info_码信息_>();
             for (int i = 0; i < _读码内容.Count; i++)
             {
                 lst.Add(new 读码器.info_码信息_ { 索引 = i, 码内容 = _读码内容[i] });
             }
-            return lst;
+
+            if (!string.IsNullOrWhiteSpace(当前码))
+                lst.Add(new 读码器.info_码信息_ { 索引 = _读码内容.Count, 码内容 = 当前码 });
+
+
+            if (lst.Count > 0)
+            {
+                计算.查看_读码器图像_手持扫码枪(lst, lst.Count - 1, 错误标题);
+            }
+
         }
+
+
 
     }
 }

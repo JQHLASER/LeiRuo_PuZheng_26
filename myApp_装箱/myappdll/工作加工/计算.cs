@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static myappdll.图像;
@@ -875,7 +875,18 @@ namespace myappdll
             return rt;
         }
 
+        internal static void 查看_读码器图像_手持扫码枪(List<读码器.info_码信息_> lst原始码, int 索引, string 错误信息)
+        {
+            if (索引 >= lst原始码.Count)
+                return;
+             
+            图像.info_绘制信息_ info_Draw = 工件.gj_sys.Config.文件.图像标注参数[索引];
+            Form_main.form_Main.Invoke(new Action(() =>
+            {
+                new Form_图像标注_显示(工件.gj_sys.Config.文件.读码图像名称, new 图像.info_绘制信息_[] { info_Draw }, 错误信息).ShowDialog(Form_main.form_Main);
+            }));
 
+        }
         #endregion
 
 
