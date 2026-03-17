@@ -70,7 +70,7 @@ namespace myappdll
             msgErr = "";
             if (_读码内容.Contains(value))
             {
-                msgErr = "扫码枪,检测到有重复扫码";
+                msgErr = "扫码枪扫码,检测到当前盘中有重复扫码";
                 string m = msgErr;
                 if (Is错误时弹窗)
                 {
@@ -128,7 +128,8 @@ namespace myappdll
 
                     if (!rt)
                     {
-                        显示不合格图像( str , "当前盘重码");
+                        显示不合格图像( str , "检测到当前盘中有重复扫码");
+                        Log .Add (rt, $"扫码枪扫码,检测到当前盘中有重复扫码,内容:<{str}>" );
                     }
 
 
