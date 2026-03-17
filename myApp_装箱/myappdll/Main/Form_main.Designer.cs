@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main));
-            Sunny25.Draw画布.字体类 字体类1 = new Sunny25.Draw画布.字体类();
-            Sunny25.Draw画布.字体类 字体类2 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类5 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类6 = new Sunny25.Draw画布.字体类();
             this.功能栏1 = new Sunny25.功能栏();
             this.菜单栏_main = new Sunny25.工具栏();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -75,6 +75,7 @@
             this.uiPanel_工作区_中 = new Sunny25.UIPanel();
             this.draw画布_工作区 = new Sunny25.Draw画布();
             this.uI_软件信息1 = new Sunny25.UI_软件信息(this.components);
+            this.label_手持扫码枪_扫码计数 = new System.Windows.Forms.Label();
             this.菜单栏_main.SuspendLayout();
             this.tableLayoutPanel_工作区.SuspendLayout();
             this.uiPanel_工作区_右.SuspendLayout();
@@ -437,6 +438,7 @@
             // uiPanel_工作区_左
             // 
             this.uiPanel_工作区_左.Controls.Add(this.flowLayoutPanel_操作按钮);
+            this.uiPanel_工作区_左.Controls.Add(this.label_手持扫码枪_扫码计数);
             this.uiPanel_工作区_左.Controls.Add(this.uI_Led25_复位);
             this.uiPanel_工作区_左.Controls.Add(this.uI_Led25_启动);
             this.uiPanel_工作区_左.Controls.Add(this.三色灯_三色灯);
@@ -463,10 +465,10 @@
             this.flowLayoutPanel_操作按钮.Controls.Add(this.uiButton_复位);
             this.flowLayoutPanel_操作按钮.Controls.Add(this.uiButton_清空读码);
             this.flowLayoutPanel_操作按钮.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel_操作按钮.Location = new System.Drawing.Point(2, 186);
+            this.flowLayoutPanel_操作按钮.Location = new System.Drawing.Point(2, 142);
             this.flowLayoutPanel_操作按钮.Name = "flowLayoutPanel_操作按钮";
             this.flowLayoutPanel_操作按钮.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel_操作按钮.Size = new System.Drawing.Size(86, 353);
+            this.flowLayoutPanel_操作按钮.Size = new System.Drawing.Size(86, 327);
             this.flowLayoutPanel_操作按钮.TabIndex = 2;
             // 
             // uiButton_换拖
@@ -479,7 +481,7 @@
             this.uiButton_换拖.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_换拖.Name = "uiButton_换拖";
             this.uiButton_换拖.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uiButton_换拖.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_换拖.Size = new System.Drawing.Size(75, 50);
             this.uiButton_换拖.Style = Sunny25.UIStyle.深色1;
             this.uiButton_换拖.StyleCustomMode = true;
             this.uiButton_换拖.TabIndex = 0;
@@ -492,11 +494,11 @@
             this.uiButton_换箱.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiButton_换箱.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
             this.uiButton_换箱.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiButton_换箱.Location = new System.Drawing.Point(3, 79);
+            this.uiButton_换箱.Location = new System.Drawing.Point(3, 69);
             this.uiButton_换箱.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_换箱.Name = "uiButton_换箱";
             this.uiButton_换箱.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uiButton_换箱.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_换箱.Size = new System.Drawing.Size(75, 50);
             this.uiButton_换箱.Style = Sunny25.UIStyle.深色1;
             this.uiButton_换箱.StyleCustomMode = true;
             this.uiButton_换箱.TabIndex = 1;
@@ -509,11 +511,11 @@
             this.uiButton_尾料.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiButton_尾料.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
             this.uiButton_尾料.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiButton_尾料.Location = new System.Drawing.Point(3, 145);
+            this.uiButton_尾料.Location = new System.Drawing.Point(3, 125);
             this.uiButton_尾料.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_尾料.Name = "uiButton_尾料";
             this.uiButton_尾料.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uiButton_尾料.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_尾料.Size = new System.Drawing.Size(75, 50);
             this.uiButton_尾料.Style = Sunny25.UIStyle.深色1;
             this.uiButton_尾料.StyleCustomMode = true;
             this.uiButton_尾料.TabIndex = 2;
@@ -526,11 +528,11 @@
             this.uiButton_复位.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiButton_复位.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
             this.uiButton_复位.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiButton_复位.Location = new System.Drawing.Point(3, 211);
+            this.uiButton_复位.Location = new System.Drawing.Point(3, 181);
             this.uiButton_复位.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_复位.Name = "uiButton_复位";
             this.uiButton_复位.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uiButton_复位.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_复位.Size = new System.Drawing.Size(75, 50);
             this.uiButton_复位.Style = Sunny25.UIStyle.深色1;
             this.uiButton_复位.StyleCustomMode = true;
             this.uiButton_复位.TabIndex = 3;
@@ -543,11 +545,11 @@
             this.uiButton_清空读码.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiButton_清空读码.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(124)))));
             this.uiButton_清空读码.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiButton_清空读码.Location = new System.Drawing.Point(3, 277);
+            this.uiButton_清空读码.Location = new System.Drawing.Point(3, 237);
             this.uiButton_清空读码.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_清空读码.Name = "uiButton_清空读码";
             this.uiButton_清空读码.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(124)))));
-            this.uiButton_清空读码.Size = new System.Drawing.Size(76, 60);
+            this.uiButton_清空读码.Size = new System.Drawing.Size(75, 50);
             this.uiButton_清空读码.Style = Sunny25.UIStyle.深色;
             this.uiButton_清空读码.StyleCustomMode = true;
             this.uiButton_清空读码.TabIndex = 4;
@@ -558,11 +560,11 @@
             this.uI_Led25_复位.BackColor = System.Drawing.Color.Transparent;
             this.uI_Led25_复位.Dock = System.Windows.Forms.DockStyle.Top;
             this.uI_Led25_复位.Font = new System.Drawing.Font("微软雅黑", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uI_Led25_复位.Location = new System.Drawing.Point(2, 146);
+            this.uI_Led25_复位.Location = new System.Drawing.Point(2, 112);
             this.uI_Led25_复位.Margin = new System.Windows.Forms.Padding(4);
             this.uI_Led25_复位.Name = "uI_Led25_复位";
-            this.uI_Led25_复位.Padding = new System.Windows.Forms.Padding(5);
-            this.uI_Led25_复位.Size = new System.Drawing.Size(86, 40);
+            this.uI_Led25_复位.Padding = new System.Windows.Forms.Padding(3);
+            this.uI_Led25_复位.Size = new System.Drawing.Size(86, 30);
             this.uI_Led25_复位.TabIndex = 3;
             this.uI_Led25_复位.内容_Text = "复位";
             this.uI_Led25_复位.圆角 = 5;
@@ -581,11 +583,11 @@
             this.uI_Led25_启动.BackColor = System.Drawing.Color.Transparent;
             this.uI_Led25_启动.Dock = System.Windows.Forms.DockStyle.Top;
             this.uI_Led25_启动.Font = new System.Drawing.Font("微软雅黑", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uI_Led25_启动.Location = new System.Drawing.Point(2, 106);
+            this.uI_Led25_启动.Location = new System.Drawing.Point(2, 82);
             this.uI_Led25_启动.Margin = new System.Windows.Forms.Padding(4);
             this.uI_Led25_启动.Name = "uI_Led25_启动";
-            this.uI_Led25_启动.Padding = new System.Windows.Forms.Padding(5);
-            this.uI_Led25_启动.Size = new System.Drawing.Size(86, 40);
+            this.uI_Led25_启动.Padding = new System.Windows.Forms.Padding(3);
+            this.uI_Led25_启动.Size = new System.Drawing.Size(86, 30);
             this.uI_Led25_启动.TabIndex = 1;
             this.uI_Led25_启动.内容_Text = "启动";
             this.uI_Led25_启动.圆角 = 5;
@@ -612,7 +614,7 @@
             this.三色灯_三色灯.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.三色灯_三色灯.RectColor = System.Drawing.Color.Silver;
             this.三色灯_三色灯.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.三色灯_三色灯.Size = new System.Drawing.Size(86, 104);
+            this.三色灯_三色灯.Size = new System.Drawing.Size(86, 80);
             this.三色灯_三色灯.Style = Sunny25.UIStyle.Custom;
             this.三色灯_三色灯.StyleCustomMode = true;
             this.三色灯_三色灯.TabIndex = 0;
@@ -660,11 +662,11 @@
             this.draw画布_工作区.上_top边距 = 2;
             this.draw画布_工作区.使能_滚动条_X = true;
             this.draw画布_工作区.使能_滚动条_Y = true;
-            字体类1.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            字体类2.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类5.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类6.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[] {
-        字体类1,
-        字体类2};
+        字体类5,
+        字体类6};
             this.draw画布_工作区.左_left边距 = 0;
             this.draw画布_工作区.控件边距_X = 20;
             this.draw画布_工作区.控件边距_Y = 20;
@@ -698,6 +700,19 @@
         "       // 二维码/第4/5/6位三位"};
             this.uI_软件信息1.版本 = "<读码装箱>QF2511.1";
             this.uI_软件信息1.语言翻译 = false;
+            // 
+            // label_手持扫码枪_扫码计数
+            // 
+            this.label_手持扫码枪_扫码计数.BackColor = System.Drawing.Color.Black;
+            this.label_手持扫码枪_扫码计数.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label_手持扫码枪_扫码计数.Font = new System.Drawing.Font("微软雅黑", 25.04348F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_手持扫码枪_扫码计数.ForeColor = System.Drawing.Color.White;
+            this.label_手持扫码枪_扫码计数.Location = new System.Drawing.Point(2, 469);
+            this.label_手持扫码枪_扫码计数.Name = "label_手持扫码枪_扫码计数";
+            this.label_手持扫码枪_扫码计数.Size = new System.Drawing.Size(86, 70);
+            this.label_手持扫码枪_扫码计数.TabIndex = 6;
+            this.label_手持扫码枪_扫码计数.Text = "99";
+            this.label_手持扫码枪_扫码计数.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form_main
             // 
@@ -779,5 +794,6 @@
         public Sunny25.UI_Led25 uI_Led25_复位;
         public Sunny25.UIButton uiButton_清空读码;
         public System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
+        public System.Windows.Forms.Label label_手持扫码枪_扫码计数;
     }
 }

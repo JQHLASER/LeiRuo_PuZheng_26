@@ -50,6 +50,7 @@ namespace myappdll
             Form_main.form_Main.Invoke((Action)(() =>
             {
                 Form_main.form_Main.uiButton_清空读码.Visible = 系统类_myApp.Config.参数.使能_手持扫码枪;
+                Form_main.form_Main.label_手持扫码枪_扫码计数.Visible = 系统类_myApp.Config.参数.使能_手持扫码枪;
             }));
 
             if (!系统类_myApp.Config.参数.使能_手持扫码枪)
@@ -123,7 +124,7 @@ namespace myappdll
                 {
                     #region 是否在当前盘中重码
 
-                    rt = Err_扫码中重码(str, out msgErr1, false ); //检测扫码中是否有重码
+                    rt = Err_扫码中重码(str, out msgErr1, false); //检测扫码中是否有重码
 
                     if (!rt)
                     {

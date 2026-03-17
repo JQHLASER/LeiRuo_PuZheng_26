@@ -44,6 +44,10 @@ namespace myappdll
             if (系统类_myApp.Config.参数.使能_手持扫码枪)
             {
                 lst.Add($"扫码数量:{手持扫码枪._读码内容.Count}");
+                Form_main.form_Main.Invoke((Action)(() =>
+                {
+                    Form_main .form_Main.label_手持扫码枪_扫码计数 .Text = $"{手持扫码枪._读码内容.Count}";
+                }));
             }
         }
 
