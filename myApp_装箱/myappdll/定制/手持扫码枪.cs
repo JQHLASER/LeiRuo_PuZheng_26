@@ -204,6 +204,8 @@ namespace myappdll
 
         }
 
+
+
         static void 显示不合格图像(string 当前码,string 错误标题)
         {
             var lst = new List<读码器.info_码信息_>();
