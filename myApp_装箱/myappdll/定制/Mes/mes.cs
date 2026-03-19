@@ -13,8 +13,9 @@ namespace myappdll
     internal class mes
     {
 
-        internal static (bool s, string m) 上传(mes_数据结构._上传_ info)
+        internal static (bool s, string m, string[] 不良SN) 上传(mes_数据结构._上传_ info)
         {
+            string[] sn = new string[0];
             string url = 系统类_myApp.Config.参数.Mes_Url;
             string jsonStr = JsonConvert.SerializeObject(info);
             string jsonStrLog = JsonConvert.SerializeObject(info, Formatting.Indented);
@@ -30,6 +31,7 @@ namespace myappdll
                     msg = rtMes.msg;
                     rt = rtMes.code == 0
                         ? true : false;
+                    sn=rtMes.snlist;
                 }
                 catch (Exception ex)
                 {
@@ -37,7 +39,7 @@ namespace myappdll
                     msg = ex.ToString();
                 }
             }
-            return (rt, msg);
+            return (rt, msg,sn);
         }
 
 

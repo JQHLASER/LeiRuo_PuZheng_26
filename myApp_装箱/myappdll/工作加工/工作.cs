@@ -249,14 +249,18 @@ namespace myappdll
                         },
                     });
                     rt = rtMes.s;
-                    msgErr =rt? "成功": rtMes.m;
-                    Log.Add(rt,$"mes反馈,{msgErr }");
-                    if (!rt)
+                    msgErr = rt ? "成功" : rtMes.m;
+                    Log.Add(rt, $"mes反馈,{msgErr}");
+                    if (!rt && rtMes.不良SN.Length == 0)
                     {
                         Form_main.form_Main.Invoke((Action)(() =>
                         {
                             Sunny25.Messagebox.Show(Form_main.form_Main, $"mes反馈: {rtMes.m}", "Mes,Err", Sunny25.MessageboxButtons.OK, Sunny25.MessageboxStatus.Red);
                         }));
+                    }
+                    else if (!rt)
+                    {
+                        计算.查看_读码器图像_Mes报错(lst不为空的码, rtMes.不良SN.ToList(), $"mes反馈: {rtMes.m}");
                     }
                 }
             }

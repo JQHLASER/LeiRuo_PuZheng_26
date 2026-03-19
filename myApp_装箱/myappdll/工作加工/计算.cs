@@ -879,7 +879,7 @@ namespace myappdll
         {
             if (索引 >= lst原始码.Count)
                 return;
-             
+
             图像.info_绘制信息_ info_Draw = 工件.gj_sys.Config.文件.图像标注参数[索引];
             Form_main.form_Main.Invoke(new Action(() =>
             {
@@ -890,7 +890,18 @@ namespace myappdll
         #endregion
 
 
+        internal static void 查看_读码器图像_Mes报错(List<读码器.info_码信息_> lst不为空的码, List<string> Ng的码, string 错误信息)
+        {
+            图像.info_绘制信息_[] MainDraw = new info_绘制信息_[0];
+            解析_图像_重码(lst不为空的码, Ng的码, out MainDraw);
 
+            Form_main.form_Main.Invoke(new Action(() =>
+            {
+                new Form_图像标注_显示(工件.gj_sys.Config.文件.读码图像名称, MainDraw, 错误信息).ShowDialog(Form_main.form_Main);
+            }));
+
+
+        }
 
 
 
