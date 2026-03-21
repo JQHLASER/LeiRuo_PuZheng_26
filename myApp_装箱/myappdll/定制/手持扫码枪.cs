@@ -98,11 +98,10 @@ namespace myappdll
             {
                 "权限",
                 "接收内容日志",
-                "是否在当前盘中重码",
-                "是否在数据库中重码",
-                "是否混料",
                 "点检样件",
-
+                "是否混料",
+                "是否在当前盘中重码",
+                "是否在数据库中重码", 
             };
             string str = Encoding.Default.GetString(data).Trim();
 
