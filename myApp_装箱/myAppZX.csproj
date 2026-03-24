@@ -52,7 +52,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="del &quot;$(TargetDir)*.xml&quot; /q&#xD;&#xA; " />
+    <Exec Command="call &quot;$(ProjectDir)CleanPartialRuntimes.bat&quot; &quot;$(TargetDir)runtimes&quot;&#xD;&#xA;&#xD;&#xA; " />
   </Target>
 
 </Project>

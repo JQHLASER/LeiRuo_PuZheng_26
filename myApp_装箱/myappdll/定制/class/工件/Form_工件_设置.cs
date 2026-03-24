@@ -146,7 +146,7 @@ namespace myappdll
 
                 文件.SN码校验 = this.uItextBox_QF_SN码校验.Text;
                 文件.机种 = this.uItextBox_QF_机种.Text;
-                文件 .机台代码 =this.uItextBox_QF_机台代码 .Text;
+                文件.机台代码 = this.uItextBox_QF_机台代码.Text;
 
 
                 文件.打印标签_拖 = this.uIcombobox_QF_打印标签_拖.uiComboBox1.SelectedText;
@@ -248,7 +248,7 @@ namespace myappdll
             this.uIcombobox_QF_打印标签_箱.uiComboBox1.SelectedIndex = -1;
             this.uItextBox_QF_读码图像.Text = "";
             this.uItextBox_QF_读码指令.Text = 读码器.Config.参数.启动读码;
-            this.uItextBox_QF_机台代码.Text=  "" ;
+            this.uItextBox_QF_机台代码.Text = "";
         }
 
 
@@ -370,13 +370,19 @@ namespace myappdll
         {
             mainclassqf.文件_选择文件.info_参数_ info = new 文件_选择文件.info_参数_();
             info.文件夹路径 = 读码器.Config.参数.读码器图像文件夹;
-            info.后缀 = "";
+            info.后缀 = "*.jpg";
             info.显示后缀 = true;
-            DialogResult rt = new mainclassqf.文件_选择文件().窗体_选择文件(info, 文件_选择文件.enum模式.打开, out string fileName, true);
 
-            if (rt == DialogResult.OK)
+            //DialogResult rt = new mainclassqf.文件_选择文件().窗体_选择文件(info, 文件_选择文件.enum模式.打开, out string fileName, true);
+
+
+            var rtName = new QF_MainClass_26.文件_文件夹().文件_获取_文件夹下所有文件名(读码器.Config.参数.读码器图像文件夹);
+
+            var rt = new QF_WinForm_26.软件类().Win_文件类弹窗(读码器.Config.参数.读码器图像文件夹, "Jpg", "*.jpg", QF_WinForm_26._文件弹窗类型_.打开);
+
+            if (rt.dlt == DialogResult.OK)
             {
-                this.uItextBox_QF_读码图像.Text = new mainclassqf.文件_文件夹().获取文件名_含后缀(fileName);
+                this.uItextBox_QF_读码图像.Text = new mainclassqf.文件_文件夹().获取文件名_含后缀(rt.文件名);
                 //  string pathX = $"{读码器.Config.参数.读码器图像文件夹}\\{this.uItextBox_QF_读码图像.Text}";
                 //  bool rtF = new mainclassqf.文件_文件夹().复制文件(fileName, pathX, true, out string msgErr);
                 //if (!rtF)

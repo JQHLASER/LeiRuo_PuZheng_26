@@ -21,6 +21,12 @@ namespace myappdll
 
         internal static void 初始化()
         {
+            if (!系统类_myApp.Config.参数.使能_手持扫码枪)
+            {
+                return;
+            }
+
+
             string path = mainclassSoft.系统类.Config.File_MyAppSys_Config + "\\手持扫码枪.txt";
             tcp_sys.Config.path = path;
 

@@ -4,6 +4,7 @@ using Sunny25;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -50,7 +51,7 @@ namespace myappdll
             public string 未读出码内容 { set; get; } = "ERROR";
 
 
-            public string 读码器图像文件夹 { set; get; } = Environment.CurrentDirectory + "\\ReadImage";
+            public string 读码器图像文件夹 { set; get; } =Path .Combine (AppDomain .CurrentDomain .BaseDirectory , "ReadImage") ;
 
         }
 
@@ -112,6 +113,7 @@ namespace myappdll
             }
             tcp_sys.Action_接收数据 -= On_接收数据;
             jm_sys.Action_0 -= On_接收数据_jm;
+
             jm_sys.释放();
             tcp_sys.Stop关闭连接(out string msgErr);
 

@@ -60,6 +60,12 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="QF_MainClass_26">
+      <HintPath>..\..\..\..\..\..\..\2026\QFClass26\QFclass2026\QF_2026_ClassMain\bin\Release\QF_MainClass_26.dll</HintPath>
+    </Reference>
+    <Reference Include="QF_WinForm_26">
+      <HintPath>..\..\..\..\..\..\..\2026\QFClass26\QFclass2026\QF_WinForm_26\bin\Release\QF_WinForm_26.dll</HintPath>
+    </Reference>
     <Reference Include="SqlSugar">
       <HintPath>..\..\..\..\..\..\..\2025\MainClass25\MainClass.2025\qfSqlSugar\bin\Release\SqlSugar.dll</HintPath>
     </Reference>
