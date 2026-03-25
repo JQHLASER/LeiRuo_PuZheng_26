@@ -20,7 +20,9 @@ namespace myappdll
         文件 gj_sys;
         编码25 Encod_sys;
         string 文件名 = "";
-        文件.info_参数_文件_ 文件 = new 文件.info_参数_文件_();
+       internal  文件.info_参数_文件_ 文件 = new 文件.info_参数_文件_();
+        internal static  Form_工件_设置 forms;
+
 
         void 新建()
         {
@@ -261,6 +263,7 @@ namespace myappdll
             this.gj_sys = gj_sys_;
             this.文件名 = 文件名_;
             this.Encod_sys = Encod_sys_;
+            forms = this;
         }
 
         private void Form_工件_设置_Load(object sender, EventArgs e)

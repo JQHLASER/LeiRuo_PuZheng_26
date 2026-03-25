@@ -233,9 +233,9 @@ namespace myappdll
         internal static void 窗体标题栏()
         {
             工作.标题栏状态(申明.myForm25_sys, "");
-             
-            编码.Encode_sys.标题栏状态(申明.myForm25_sys, "编码模块");           
-            打印.标题栏状态();          
+
+            编码.Encode_sys.标题栏状态(申明.myForm25_sys, "编码模块");
+            打印.标题栏状态();
             手持扫码枪.标题栏状态();
 
             工件.标题栏状态();

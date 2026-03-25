@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,7 @@ namespace myappdll
         }
 
         internal Config_ Config = new Config_();
+         
 
         // 优化：绘制逻辑封装成一个方法
         private void DrawAnnotations(Graphics g)
@@ -54,42 +56,71 @@ namespace myappdll
             foreach (var s in Config.Beff绘制信息)
             {
                 a++;
-                if (s == null || string.IsNullOrEmpty(s.文本内容) || s.width_边框 == 0 || s.height_边框 == 0)
-                {
-                    continue;
-                }
+                if (s == null) continue; 
+                string text = string.IsNullOrEmpty(s.文本内容) ? a.ToString (): s.文本内容;
+                Font font = s.fonts ?? Form_图像标注_设置 .forms .Font;
+                Brush brush = s.文本颜色 ?? Brushes.Red;
+                Color color = s.边框颜色.IsEmpty ? Color.Red : s.边框颜色;
+                float width = s.边框粗细 <= 0 ? 1 : s.边框粗细;
 
-                if (string.IsNullOrEmpty(s.文本内容)) s.文本内容 = a.ToString();
+                if (s.width_边框 <= 0 || s.height_边框 <= 0) continue;
 
-                // 定义字体和颜色
-                Font font = s.fonts;
-                System.Drawing.Brush brush = s.文本颜色;
-
-                // 绘制文本
                 PointF point = new PointF(s.left, s.top);
-                g.DrawString(s.文本内容, font, brush, point);
 
-                // 绘制边框
-                System.Drawing.Pen pen = new System.Drawing.Pen(s.边框颜色, s.边框粗细);
-                g.DrawRectangle(pen, s.left, s.top, s.width_边框, s.height_边框);
+                g.DrawString(text, font, brush, point);
+                using (Pen pen = new Pen(color, width))
+                {
+                    g.DrawRectangle(pen, s.left, s.top, s.width_边框, s.height_边框);
+                }
             }
         }
 
+         
         // Paint事件处理：简化逻辑
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             try
             {
+
+
+                if (Form_图像标注_设置.forms._原图 == null) return;
+
                 var g = e.Graphics;
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                DrawAnnotations(g); // 使用封装的绘制方法
+
+                // 先画原图
+                g.DrawImage(Form_图像标注_设置.forms._原图, 0, 0, Form_图像标注_设置.forms.pictureBox1.Width, Form_图像标注_设置.forms.Height);
+
+                // 再画所有标注
+                DrawAnnotations(g);
+
             }
             catch (Exception ex)
             {
-                Log.Add(false, ex.Message); // 改进：记录异常
+
+                MessageBox.Show(ex.ToString());
             }
+
+            //Bitmap bmp = new Bitmap(Form_图像标注_设置.forms._原图);
+
+            //using (Graphics g = Graphics.FromImage(bmp))
+            //{
+            //    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            //    DrawAnnotations(g);
+            //}
+
+            //    //Form_图像标注_设置.forms.pictureBox1.Image?.Dispose(); 
+            //    var old = Form_图像标注_设置.forms.pictureBox1.Image;
+            //    Form_图像标注_设置.forms.pictureBox1.Image = bmp;
+            //    old?.Dispose(); // 注意顺序
+            //}
+            //catch (Exception ex)
+            //{ 
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
+         
         // Resize事件处理：更新绘制信息
         private void pictureBox_Resize(object sender, EventArgs e)
         {
@@ -126,7 +157,7 @@ namespace myappdll
                 pic.Image = null;
             }
 
-            pic.Paint -= pictureBox_Paint; // 解绑事件
+           pic.Paint -= pictureBox_Paint; // 解绑事件
             pic.Resize -= pictureBox_Resize;
         }
 
@@ -134,7 +165,8 @@ namespace myappdll
         internal void 标注图像(info_绘制信息_[] beff)
         {
             Config.Beff绘制信息 = beff;
-            Config.picBox.Invalidate(); // 更新图像显示
+          
+           Config.picBox.Invalidate(); // 更新图像显示
         }
 
         // 改进：图像读取方法

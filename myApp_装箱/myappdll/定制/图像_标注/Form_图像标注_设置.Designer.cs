@@ -236,7 +236,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private Sunny25.UIListBox uiListBox_对象;
         private Sunny25.工具栏 工具栏1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -247,5 +246,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private Sunny25.UIButton uiButton2;
+        internal System.Windows.Forms.PictureBox pictureBox1;
     }
 }

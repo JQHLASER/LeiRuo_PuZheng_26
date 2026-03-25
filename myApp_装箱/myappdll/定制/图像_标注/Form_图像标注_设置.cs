@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace myappdll
 {
     internal partial class Form_图像标注_设置 : Sunny25.UIForm
     {
         图像 picBZ_sys = new 图像();
-
+        internal Image _原图 = null;
         List<图像.info_绘制信息_> lst_main;
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace myappdll
         string FileName_image = "";
         int index_选中行 = -1;
         图像.info_绘制信息_ info当前编辑的;
-
+        internal static Form_图像标注_设置 forms;
 
         bool Err_未选中对象(out string msgErr)
         {
@@ -55,6 +56,8 @@ namespace myappdll
 
         void 标注图像()
         {
+
+
             图像.info_绘制信息_[] info = lst_main.ToArray();
             info[index_选中行].left = info当前编辑的.left;
             info[index_选中行].top = info当前编辑的.top;
@@ -63,7 +66,8 @@ namespace myappdll
             info[index_选中行].height_边框 = info当前编辑的.height_边框;
 
 
-            picBZ_sys.标注图像(info);
+           picBZ_sys.标注图像(info );
+
         }
 
 
@@ -72,6 +76,12 @@ namespace myappdll
 
         void 添加()
         {
+            if (lst_main.Count >= Form_工件_设置.forms.文件.数量.每盘个数)
+            {
+                MessageBox.Show("已达到每盘个数");
+                return;
+            }
+
             图像.info_绘制信息_ info = new 图像.info_绘制信息_();
             info.原始参数.width_picbox = this.pictureBox1.Width;
             info.原始参数.height_picbox = this.pictureBox1.Height;
@@ -136,6 +146,7 @@ namespace myappdll
             InitializeComponent();
             this.lst_main = lst_;
             this.FileName_image = FileName_image_;
+            forms = this;
         }
 
         Bitmap img = null;
@@ -146,15 +157,17 @@ namespace myappdll
 
             读码器.读取图像(this.FileName_image, out img);
 
-            if (this.pictureBox1.Image != null)
-            {
-                this.pictureBox1.Image.Dispose();
-                this.pictureBox1.Image = null;
-            }
-            this.pictureBox1.Image = img;
 
+            this.pictureBox1.Image?.Dispose();
+            this.pictureBox1.Image = img;
+            _原图 = img;
+           
             显示();
         }
+
+        
+
+
 
         private void Form_图像标注_设置_FormClosing(object sender, FormClosingEventArgs e)
         {

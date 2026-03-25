@@ -23,7 +23,7 @@ namespace myappdll
         string Value_Err = "";
         void 显示()
         {
-            picBZ_sys.标注图像(infoBeff);
+            picBZ_sys.标注图像(infoBeff );
         }
 
 
