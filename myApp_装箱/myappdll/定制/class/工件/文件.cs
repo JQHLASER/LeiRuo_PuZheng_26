@@ -87,7 +87,10 @@ namespace myappdll
 ;
             public string 机种 { set; get; } = "";
 
-
+            /// <summary>
+            /// 二维码长度
+            /// </summary>
+            public int 码长度 { set; get; } = 12;
 
             /// <summary>
             /// 后来改成用这个指令来切换模板了

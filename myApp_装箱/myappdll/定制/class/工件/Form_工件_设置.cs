@@ -146,6 +146,7 @@ namespace myappdll
                 文件.数量.每盘个数 = this.uItextBox_QF_每盘个数.IntValue;
                 文件.数量.每箱盘数 = this.uItextBox_QF_每箱盘数.IntValue;
 
+                文件.码长度 = this.uItextBox_QF_码长度.IntValue;
 
                 文件.SN码校验 = this.uItextBox_QF_SN码校验.Text;
                 文件.机种 = this.uItextBox_QF_机种.Text;
@@ -212,7 +213,7 @@ namespace myappdll
             this.uItextBox_QF_每拖箱数.IntValue = 文件.数量.每拖箱数;
             this.uItextBox_QF_每盘个数.IntValue = 文件.数量.每盘个数;
             this.uItextBox_QF_每箱盘数.IntValue = 文件.数量.每箱盘数;
-
+            this.uItextBox_QF_码长度.IntValue = 文件.码长度;
 
             this.uItextBox_QF_SN码校验.Text = 文件.SN码校验;
             this.uItextBox_QF_机种.Text = 文件.机种;
@@ -241,7 +242,7 @@ namespace myappdll
             this.uItextBox_QF_每拖箱数.IntValue = 0;
             this.uItextBox_QF_每盘个数.IntValue = 0;
             this.uItextBox_QF_每箱盘数.IntValue = 0;
-
+            this.uItextBox_QF_码长度.IntValue = 12;
 
             this.uItextBox_QF_SN码校验.Text = "";
             this.uItextBox_QF_机种.Text = "";

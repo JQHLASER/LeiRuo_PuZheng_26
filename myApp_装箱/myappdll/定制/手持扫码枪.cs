@@ -17,7 +17,7 @@ namespace myappdll
         internal static List<string> _读码内容 = new List<string>();
 
         internal static mainclassqf.Socket_Client tcp_sys = new mainclassqf.Socket_Client();
-
+        internal static mainclassqf.解码_qf jm_sys = new mainclassqf.解码_qf();
 
         internal static void 初始化()
         {
@@ -34,9 +34,15 @@ namespace myappdll
             tcp_sys.Config.参数.Port = 9004;
             tcp_sys.参数读写(1);
 
-            tcp_sys.Action_接收数据 += async (data) => await on_扫码处理(data);
+            tcp_sys.Action_接收数据 += (data) => On_接收数据(data);
+            jm_sys.Action_0 += async (data) => await on_扫码处理_jm(data);
 
             tcp_sys.Connect连接Async();
+
+            mainclassqf.解码_qf.info_参数_ infoJm = new mainclassqf.解码_qf.info_参数_();
+            infoJm.类型 = mainclassqf.解码_qf.enum类型.后缀_0D_0A;
+            jm_sys.初始化(infoJm);
+
             isInistiall = true;
         }
         static bool isInistiall = false;
@@ -90,8 +96,12 @@ namespace myappdll
             return true;
         }
 
+        static void On_接收数据(byte[] data)
+        {
+            jm_sys.解码(data, "", null, 0);
+        }
 
-        static async Task on_扫码处理(byte[] data)
+        static async Task on_扫码处理_jm(byte[] data)
         {
             if (!工作.Err_编辑中(out string msgErr1) || !Err.工作中(out msgErr1) || !Err.系统忙(申明.myForm25_sys, out msgErr1)
               || !Err.系统报警(申明.myForm25_sys, out msgErr1))
@@ -104,14 +114,15 @@ namespace myappdll
             {
                 "权限",
                 "接收内容日志",
+                "码长度校验",
                 "点检样件",
                 "是否混料",
                 "是否在当前盘中重码",
-                "是否在数据库中重码", 
+                "是否在数据库中重码",
             };
             string str = Encoding.Default.GetString(data).Trim();
 
-         
+
 
             bool rt = true;
             string msg = "";
@@ -133,8 +144,8 @@ namespace myappdll
 
                     if (!rt)
                     {
-                        显示不合格图像( str , "检测到当前盘中有重复扫码");
-                        Log .Add (rt, $"扫码枪扫码,检测到当前盘中有重复扫码,内容:<{str}>" );
+                        显示不合格图像(str, "检测到当前盘中有重复扫码");
+                        Log.Add(rt, $"扫码枪扫码,检测到当前盘中有重复扫码,内容:<{str}>");
                     }
 
 
@@ -147,7 +158,7 @@ namespace myappdll
                     rt = dataBase.查询_防重_SN条码(str, out List<表.dataZX> lst, out msg);
                     if (!rt)
                     {
-                        显示不合格图像(str,   "重码");
+                        显示不合格图像(str, "重码");
                     }
                     #endregion
                 }
@@ -184,6 +195,14 @@ namespace myappdll
                     }
                     #endregion
                 }
+                else if (s == "码长度校验")
+                {
+                    rt = 计算.码长度检测_手持扫码枪(str, out msg);
+                    if (!rt)
+                    {
+                        显示不合格图像(str, $"码长度不符,{str}");
+                    }
+                }
             }
 
 
@@ -212,7 +231,7 @@ namespace myappdll
 
 
 
-        static void 显示不合格图像(string 当前码,string 错误标题)
+        static void 显示不合格图像(string 当前码, string 错误标题)
         {
             var lst = new List<读码器.info_码信息_>();
             for (int i = 0; i < _读码内容.Count; i++)

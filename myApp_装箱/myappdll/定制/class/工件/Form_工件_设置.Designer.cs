@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_工件_设置));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uItextBox_QF_机台代码 = new Sunny25.UItextBox_QF();
             this.uItextBox_QF_读码指令 = new Sunny25.UItextBox_QF();
             this.uiGroupBox3 = new Sunny25.UIGroupBox();
             this.uiButton_选择读码图像 = new Sunny25.UIButton();
@@ -62,7 +63,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_关闭 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.uItextBox_QF_机台代码 = new Sunny25.UItextBox_QF();
+            this.uItextBox_QF_码长度 = new Sunny25.UItextBox_QF();
             this.panel1.SuspendLayout();
             this.uiGroupBox3.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.uItextBox_QF_码长度);
             this.panel1.Controls.Add(this.uItextBox_QF_机台代码);
             this.panel1.Controls.Add(this.uItextBox_QF_读码指令);
             this.panel1.Controls.Add(this.uiGroupBox3);
@@ -91,6 +93,36 @@
             this.panel1.Size = new System.Drawing.Size(780, 648);
             this.panel1.TabIndex = 1;
             // 
+            // uItextBox_QF_机台代码
+            // 
+            this.uItextBox_QF_机台代码.BackColor = System.Drawing.Color.Transparent;
+            this.uItextBox_QF_机台代码.FillColor = System.Drawing.Color.White;
+            this.uItextBox_QF_机台代码.Font = new System.Drawing.Font("微软雅黑", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uItextBox_QF_机台代码.Font__Textbobox = new System.Drawing.Font("微软雅黑", 10F);
+            this.uItextBox_QF_机台代码.Font_单位 = new System.Drawing.Font("微软雅黑", 10F);
+            this.uItextBox_QF_机台代码.Font_标识 = new System.Drawing.Font("微软雅黑", 10F);
+            this.uItextBox_QF_机台代码.HasMaximum = true;
+            this.uItextBox_QF_机台代码.HasMinimum = true;
+            this.uItextBox_QF_机台代码.Location = new System.Drawing.Point(132, 267);
+            this.uItextBox_QF_机台代码.Margin = new System.Windows.Forms.Padding(4);
+            this.uItextBox_QF_机台代码.Maximum = 2147483647D;
+            this.uItextBox_QF_机台代码.Minimum = 0D;
+            this.uItextBox_QF_机台代码.Name = "uItextBox_QF_机台代码";
+            this.uItextBox_QF_机台代码.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
+            this.uItextBox_QF_机台代码.Size = new System.Drawing.Size(510, 29);
+            this.uItextBox_QF_机台代码.Style = Sunny25.UIStyle.深色1;
+            this.uItextBox_QF_机台代码.TabIndex = 23;
+            this.uItextBox_QF_机台代码.Text_Lable1_单位 = "";
+            this.uItextBox_QF_机台代码.Text_Lable1_标识 = "机台代码";
+            this.uItextBox_QF_机台代码.textAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.uItextBox_QF_机台代码.TextAlign_单位 = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uItextBox_QF_机台代码.TextAlign_标识 = System.Drawing.ContentAlignment.MiddleRight;
+            this.uItextBox_QF_机台代码.宽度Lable_单位 = 100;
+            this.uItextBox_QF_机台代码.宽度Lable_标识 = 200;
+            this.uItextBox_QF_机台代码.文本颜色_TextBox = System.Drawing.Color.Black;
+            this.uItextBox_QF_机台代码.文本颜色_单位 = System.Drawing.Color.Gray;
+            this.uItextBox_QF_机台代码.文本颜色_标识 = System.Drawing.Color.Black;
+            // 
             // uItextBox_QF_读码指令
             // 
             this.uItextBox_QF_读码指令.BackColor = System.Drawing.Color.Transparent;
@@ -101,7 +133,7 @@
             this.uItextBox_QF_读码指令.Font_标识 = new System.Drawing.Font("微软雅黑", 10F);
             this.uItextBox_QF_读码指令.HasMaximum = true;
             this.uItextBox_QF_读码指令.HasMinimum = true;
-            this.uItextBox_QF_读码指令.Location = new System.Drawing.Point(132, 335);
+            this.uItextBox_QF_读码指令.Location = new System.Drawing.Point(132, 304);
             this.uItextBox_QF_读码指令.Margin = new System.Windows.Forms.Padding(4);
             this.uItextBox_QF_读码指令.Maximum = 2147483647D;
             this.uItextBox_QF_读码指令.Minimum = 0D;
@@ -128,7 +160,7 @@
             this.uiGroupBox3.Controls.Add(this.uiButton_读码图像标注);
             this.uiGroupBox3.FillColor = System.Drawing.SystemColors.Control;
             this.uiGroupBox3.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiGroupBox3.Location = new System.Drawing.Point(143, 405);
+            this.uiGroupBox3.Location = new System.Drawing.Point(143, 422);
             this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.uiGroupBox3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox3.Name = "uiGroupBox3";
@@ -239,7 +271,7 @@
             this.uiGroupBox1.Controls.Add(this.uiButton_编码_箱);
             this.uiGroupBox1.FillColor = System.Drawing.SystemColors.Control;
             this.uiGroupBox1.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiGroupBox1.Location = new System.Drawing.Point(536, 499);
+            this.uiGroupBox1.Location = new System.Drawing.Point(536, 511);
             this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox1.Name = "uiGroupBox1";
@@ -319,7 +351,7 @@
             this.uiGroupBox2.Controls.Add(this.uItextBox_QF_当前箱盘数);
             this.uiGroupBox2.FillColor = System.Drawing.SystemColors.Control;
             this.uiGroupBox2.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.uiGroupBox2.Location = new System.Drawing.Point(143, 499);
+            this.uiGroupBox2.Location = new System.Drawing.Point(143, 511);
             this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(0);
             this.uiGroupBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox2.Name = "uiGroupBox2";
@@ -679,35 +711,38 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(97, 6);
             // 
-            // uItextBox_QF_机台代码
+            // uItextBox_QF_码长度
             // 
-            this.uItextBox_QF_机台代码.BackColor = System.Drawing.Color.Transparent;
-            this.uItextBox_QF_机台代码.FillColor = System.Drawing.Color.White;
-            this.uItextBox_QF_机台代码.Font = new System.Drawing.Font("微软雅黑", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uItextBox_QF_机台代码.Font__Textbobox = new System.Drawing.Font("微软雅黑", 10F);
-            this.uItextBox_QF_机台代码.Font_单位 = new System.Drawing.Font("微软雅黑", 10F);
-            this.uItextBox_QF_机台代码.Font_标识 = new System.Drawing.Font("微软雅黑", 10F);
-            this.uItextBox_QF_机台代码.HasMaximum = true;
-            this.uItextBox_QF_机台代码.HasMinimum = true;
-            this.uItextBox_QF_机台代码.Location = new System.Drawing.Point(132, 267);
-            this.uItextBox_QF_机台代码.Margin = new System.Windows.Forms.Padding(4);
-            this.uItextBox_QF_机台代码.Maximum = 2147483647D;
-            this.uItextBox_QF_机台代码.Minimum = 0D;
-            this.uItextBox_QF_机台代码.Name = "uItextBox_QF_机台代码";
-            this.uItextBox_QF_机台代码.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uItextBox_QF_机台代码.Size = new System.Drawing.Size(510, 29);
-            this.uItextBox_QF_机台代码.Style = Sunny25.UIStyle.深色1;
-            this.uItextBox_QF_机台代码.TabIndex = 23;
-            this.uItextBox_QF_机台代码.Text_Lable1_单位 = "";
-            this.uItextBox_QF_机台代码.Text_Lable1_标识 = "机台代码";
-            this.uItextBox_QF_机台代码.textAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.uItextBox_QF_机台代码.TextAlign_单位 = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uItextBox_QF_机台代码.TextAlign_标识 = System.Drawing.ContentAlignment.MiddleRight;
-            this.uItextBox_QF_机台代码.宽度Lable_单位 = 100;
-            this.uItextBox_QF_机台代码.宽度Lable_标识 = 200;
-            this.uItextBox_QF_机台代码.文本颜色_TextBox = System.Drawing.Color.Black;
-            this.uItextBox_QF_机台代码.文本颜色_单位 = System.Drawing.Color.Gray;
-            this.uItextBox_QF_机台代码.文本颜色_标识 = System.Drawing.Color.Black;
+            this.uItextBox_QF_码长度.BackColor = System.Drawing.Color.Transparent;
+            this.uItextBox_QF_码长度.DoubleValue = 12D;
+            this.uItextBox_QF_码长度.FillColor = System.Drawing.Color.White;
+            this.uItextBox_QF_码长度.Font = new System.Drawing.Font("微软雅黑", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uItextBox_QF_码长度.Font__Textbobox = new System.Drawing.Font("微软雅黑", 10F);
+            this.uItextBox_QF_码长度.Font_单位 = new System.Drawing.Font("微软雅黑", 10F);
+            this.uItextBox_QF_码长度.Font_标识 = new System.Drawing.Font("微软雅黑", 10F);
+            this.uItextBox_QF_码长度.HasMaximum = true;
+            this.uItextBox_QF_码长度.HasMinimum = true;
+            this.uItextBox_QF_码长度.IntValue = 12;
+            this.uItextBox_QF_码长度.Location = new System.Drawing.Point(132, 341);
+            this.uItextBox_QF_码长度.Margin = new System.Windows.Forms.Padding(4);
+            this.uItextBox_QF_码长度.Maximum = 2147483647D;
+            this.uItextBox_QF_码长度.Minimum = 0D;
+            this.uItextBox_QF_码长度.Name = "uItextBox_QF_码长度";
+            this.uItextBox_QF_码长度.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
+            this.uItextBox_QF_码长度.Size = new System.Drawing.Size(510, 29);
+            this.uItextBox_QF_码长度.Style = Sunny25.UIStyle.深色1;
+            this.uItextBox_QF_码长度.TabIndex = 24;
+            this.uItextBox_QF_码长度.Text_Lable1_单位 = "位";
+            this.uItextBox_QF_码长度.Text_Lable1_标识 = "码长度";
+            this.uItextBox_QF_码长度.textAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.uItextBox_QF_码长度.TextAlign_单位 = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uItextBox_QF_码长度.TextAlign_标识 = System.Drawing.ContentAlignment.MiddleRight;
+            this.uItextBox_QF_码长度.Type = Sunny25.UITextBox.UIEditType.Integer;
+            this.uItextBox_QF_码长度.宽度Lable_单位 = 100;
+            this.uItextBox_QF_码长度.宽度Lable_标识 = 200;
+            this.uItextBox_QF_码长度.文本颜色_TextBox = System.Drawing.Color.Black;
+            this.uItextBox_QF_码长度.文本颜色_单位 = System.Drawing.Color.Gray;
+            this.uItextBox_QF_码长度.文本颜色_标识 = System.Drawing.Color.Black;
             // 
             // Form_工件_设置
             // 
@@ -771,5 +806,6 @@
         private Sunny25.UIButton uiButton_选择读码图像;
         private Sunny25.UItextBox_QF uItextBox_QF_读码指令;
         private Sunny25.UItextBox_QF uItextBox_QF_机台代码;
+        private Sunny25.UItextBox_QF uItextBox_QF_码长度;
     }
 }

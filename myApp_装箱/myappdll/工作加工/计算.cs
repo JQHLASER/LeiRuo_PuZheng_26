@@ -852,6 +852,26 @@ namespace myappdll
             return rt;
         }
 
+        /// <summary>
+        /// 手持扫码枪混料检测,因为手持扫码枪没有每盘数量的概念,所以只要读到的码有一个不符合SN校验值,就判定为混料
+        /// </summary> 
+        internal static bool 码长度检测_手持扫码枪(string 码内容, out string msgErr)
+        {
+            bool rt = true;
+            msgErr = string.Empty;
+            int length = 码内容.Trim().Length;
+
+            if (工件.gj_sys.Config.文件.码长度 !=length)
+            {
+                msgErr = $"码长度检测,NG,系统检测到码长度不符,<设置的码长度: {工件.gj_sys.Config.文件.码长度}><实际码长度: {length}><{码内容}>";
+                rt = false;
+                Log.Add(rt, msgErr);
+            }
+
+            return rt;
+        }
+
+
 
         /// <summary>
         /// 防止点检样品混入
