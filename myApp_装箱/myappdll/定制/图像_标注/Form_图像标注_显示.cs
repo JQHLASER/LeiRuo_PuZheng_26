@@ -14,7 +14,7 @@ namespace myappdll
 {
     internal partial class Form_图像标注_显示 : Sunny25.UIForm
     {
-        图像 picBZ_sys = new 图像();
+        图像 picBZ_sys = null ;
         图像.info_绘制信息_[] infoBeff;
         /// <summary>
         /// 图像名称
@@ -50,11 +50,7 @@ namespace myappdll
                 this.Close();
                 return;
             }
-
-
-
-            picBZ_sys.初始化(this.pictureBox1);
-
+             
             读码器.读取图像(this.FileName_image, out   img);
             if (this.pictureBox1.Image != null)
             {
@@ -63,11 +59,10 @@ namespace myappdll
             }
             this.pictureBox1.Image =img ;
             this.label1.Text = $"{this.Value_Err}";
-
+            picBZ_sys = new 图像(img,this.pictureBox1 .Width ,this.pictureBox1 .Height ,this.Font );
+            picBZ_sys.初始化(this.pictureBox1);
             显示();
-
-
-
+             
         }
 
 

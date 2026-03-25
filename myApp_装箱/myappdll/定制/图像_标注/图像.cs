@@ -1,5 +1,6 @@
 ﻿
 using mainclassqf;
+using MarkAPI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +17,20 @@ namespace myappdll
 {
     public class 图像
     {
+        Image _img = null;
+        int _width = 0;
+        int _height = 0;
+        Font _font = new Font("微软雅黑", 10f);
+
+        public 图像(Image img, int width, int height, Font fonts)
+        {
+            this._img = img;
+            this._width = width;
+            this._height = height;
+            this._font = fonts;
+        }
+
+
         public class info_绘制信息_
         {
             public float left { set; get; } = 0;
@@ -47,7 +62,7 @@ namespace myappdll
         }
 
         internal Config_ Config = new Config_();
-         
+
 
         // 优化：绘制逻辑封装成一个方法
         private void DrawAnnotations(Graphics g)
@@ -56,9 +71,9 @@ namespace myappdll
             foreach (var s in Config.Beff绘制信息)
             {
                 a++;
-                if (s == null) continue; 
-                string text = string.IsNullOrEmpty(s.文本内容) ? a.ToString (): s.文本内容;
-                Font font = s.fonts ?? Form_图像标注_设置 .forms .Font;
+                if (s == null) continue;
+                string text = string.IsNullOrEmpty(s.文本内容) ? a.ToString() : s.文本内容;
+                Font font = s.fonts ?? this._font;
                 Brush brush = s.文本颜色 ?? Brushes.Red;
                 Color color = s.边框颜色.IsEmpty ? Color.Red : s.边框颜色;
                 float width = s.边框粗细 <= 0 ? 1 : s.边框粗细;
@@ -75,7 +90,7 @@ namespace myappdll
             }
         }
 
-         
+
         // Paint事件处理：简化逻辑
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
@@ -83,13 +98,13 @@ namespace myappdll
             {
 
 
-                if (Form_图像标注_设置.forms._原图 == null) return;
+                if (this._img == null) return;
 
                 var g = e.Graphics;
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
                 // 先画原图
-                g.DrawImage(Form_图像标注_设置.forms._原图, 0, 0, Form_图像标注_设置.forms.pictureBox1.Width, Form_图像标注_设置.forms.pictureBox1 .Height);
+                g.DrawImage(this._img, 0, 0, this._width, this._height);
 
                 // 再画所有标注
                 DrawAnnotations(g);
@@ -120,7 +135,7 @@ namespace myappdll
             //}
         }
 
-         
+
         // Resize事件处理：更新绘制信息
         private void pictureBox_Resize(object sender, EventArgs e)
         {
@@ -157,7 +172,7 @@ namespace myappdll
                 pic.Image = null;
             }
 
-           pic.Paint -= pictureBox_Paint; // 解绑事件
+            pic.Paint -= pictureBox_Paint; // 解绑事件
             pic.Resize -= pictureBox_Resize;
         }
 
@@ -165,8 +180,8 @@ namespace myappdll
         internal void 标注图像(info_绘制信息_[] beff)
         {
             Config.Beff绘制信息 = beff;
-          
-           Config.picBox.Invalidate(); // 更新图像显示
+
+            Config.picBox.Invalidate(); // 更新图像显示
         }
 
         // 改进：图像读取方法

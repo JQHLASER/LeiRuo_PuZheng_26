@@ -14,8 +14,8 @@ namespace myappdll
 {
     internal partial class Form_图像标注_设置 : Sunny25.UIForm
     {
-        图像 picBZ_sys = new 图像();
-        internal Image _原图 = null;
+        图像 picBZ_sys = null;
+
         List<图像.info_绘制信息_> lst_main;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace myappdll
         string FileName_image = "";
         int index_选中行 = -1;
         图像.info_绘制信息_ info当前编辑的;
-        internal static Form_图像标注_设置 forms;
+
 
         bool Err_未选中对象(out string msgErr)
         {
@@ -66,7 +66,7 @@ namespace myappdll
             info[index_选中行].height_边框 = info当前编辑的.height_边框;
 
 
-           picBZ_sys.标注图像(info );
+            picBZ_sys.标注图像(info);
 
         }
 
@@ -146,26 +146,25 @@ namespace myappdll
             InitializeComponent();
             this.lst_main = lst_;
             this.FileName_image = FileName_image_;
-            forms = this;
+
         }
 
         Bitmap img = null;
         private void Form_设置_Load(object sender, EventArgs e)
-        {
-
-            picBZ_sys.初始化(this.pictureBox1);
-
-            读码器.读取图像(this.FileName_image, out img);
-
-
+        { 
+            读码器.读取图像(this.FileName_image, out img); 
             this.pictureBox1.Image?.Dispose();
             this.pictureBox1.Image = img;
-            _原图 = img;
-           
+
+
+            picBZ_sys = new 图像(img, this.pictureBox1.Width, this.pictureBox1.Height, this.Font);
+            picBZ_sys.初始化(this.pictureBox1);
+          
+
             显示();
         }
 
-        
+
 
 
 
