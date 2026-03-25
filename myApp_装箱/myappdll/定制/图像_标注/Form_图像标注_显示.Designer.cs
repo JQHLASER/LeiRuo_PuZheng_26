@@ -30,10 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.uiButton2 = new Sunny25.UIButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.uiButton_Yes = new Sunny25.UIButton();
+            this.uiButton2 = new Sunny25.UIButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -44,8 +44,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 35);
@@ -66,15 +66,21 @@
             this.panel2.Size = new System.Drawing.Size(144, 454);
             this.panel2.TabIndex = 1;
             // 
-            // pictureBox1
+            // uiButton_Yes
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(644, 454);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.uiButton_Yes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.uiButton_Yes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
+            this.uiButton_Yes.Font = new System.Drawing.Font("微软雅黑", 15.02609F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton_Yes.Location = new System.Drawing.Point(13, 13);
+            this.uiButton_Yes.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton_Yes.Name = "uiButton_Yes";
+            this.uiButton_Yes.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
+            this.uiButton_Yes.Size = new System.Drawing.Size(120, 90);
+            this.uiButton_Yes.Style = Sunny25.UIStyle.深色1;
+            this.uiButton_Yes.StyleCustomMode = true;
+            this.uiButton_Yes.TabIndex = 4;
+            this.uiButton_Yes.Text = "Yes";
+            this.uiButton_Yes.Visible = false;
             // 
             // uiButton2
             // 
@@ -98,6 +104,16 @@
             this.uiButton2.Text = "关闭";
             this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(644, 454);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -110,22 +126,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "重码";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // uiButton_Yes
-            // 
-            this.uiButton_Yes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.uiButton_Yes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uiButton_Yes.Font = new System.Drawing.Font("微软雅黑", 15.02609F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton_Yes.Location = new System.Drawing.Point(13, 13);
-            this.uiButton_Yes.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton_Yes.Name = "uiButton_Yes";
-            this.uiButton_Yes.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(83)))), ((int)(((byte)(100)))));
-            this.uiButton_Yes.Size = new System.Drawing.Size(120, 90);
-            this.uiButton_Yes.Style = Sunny25.UIStyle.深色1;
-            this.uiButton_Yes.StyleCustomMode = true;
-            this.uiButton_Yes.TabIndex = 4;
-            this.uiButton_Yes.Text = "Yes";
-            this.uiButton_Yes.Visible = false;
             // 
             // Form_图像标注_显示
             // 

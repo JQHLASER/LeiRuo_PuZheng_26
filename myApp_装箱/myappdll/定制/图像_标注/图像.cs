@@ -89,7 +89,7 @@ namespace myappdll
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
                 // 先画原图
-                g.DrawImage(Form_图像标注_设置.forms._原图, 0, 0, Form_图像标注_设置.forms.pictureBox1.Width, Form_图像标注_设置.forms.Height);
+                g.DrawImage(Form_图像标注_设置.forms._原图, 0, 0, Form_图像标注_设置.forms.pictureBox1.Width, Form_图像标注_设置.forms.pictureBox1 .Height);
 
                 // 再画所有标注
                 DrawAnnotations(g);
