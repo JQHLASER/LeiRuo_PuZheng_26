@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,8 @@ namespace myappdll
         文件 gj_sys;
         编码25 Encod_sys;
         string 文件名 = "";
-       internal  文件.info_参数_文件_ 文件 = new 文件.info_参数_文件_();
-        internal static  Form_工件_设置 forms;
+        internal 文件.info_参数_文件_ 文件 = new 文件.info_参数_文件_();
+        internal static Form_工件_设置 forms;
 
 
         void 新建()
@@ -385,7 +386,7 @@ namespace myappdll
 
             if (rt.dlt == DialogResult.OK)
             {
-                this.uItextBox_QF_读码图像.Text = new mainclassqf.文件_文件夹().获取文件名_含后缀(rt.文件名);
+                this.uItextBox_QF_读码图像.Text = $"{rt.文件名}.jpg";
                 //  string pathX = $"{读码器.Config.参数.读码器图像文件夹}\\{this.uItextBox_QF_读码图像.Text}";
                 //  bool rtF = new mainclassqf.文件_文件夹().复制文件(fileName, pathX, true, out string msgErr);
                 //if (!rtF)
