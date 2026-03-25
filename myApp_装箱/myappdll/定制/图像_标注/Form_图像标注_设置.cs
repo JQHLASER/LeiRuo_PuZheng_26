@@ -76,11 +76,11 @@ namespace myappdll
 
         void 添加()
         {
-            if (lst_main.Count >= Form_工件_设置.forms.文件.数量.每盘个数)
-            {
-                MessageBox.Show("已达到每盘个数");
-                return;
-            }
+            //if (lst_main.Count >= Form_工件_设置.forms.文件.数量.每盘个数)
+            //{
+            //    MessageBox.Show("已达到每盘个数");
+            //    return;
+            //}
 
             图像.info_绘制信息_ info = new 图像.info_绘制信息_();
             info.原始参数.width_picbox = this.pictureBox1.Width;
