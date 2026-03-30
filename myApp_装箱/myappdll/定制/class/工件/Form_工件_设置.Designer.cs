@@ -367,7 +367,7 @@
             this.uItextBox_QF_SN码校验.Size = new System.Drawing.Size(510, 29);
             this.uItextBox_QF_SN码校验.Style = Sunny25.UIStyle.深色1;
             this.uItextBox_QF_SN码校验.TabIndex = 18;
-            this.uItextBox_QF_SN码校验.Text_Lable1_单位 = "";
+            this.uItextBox_QF_SN码校验.Text_Lable1_单位 = "第4/5/6位";
             this.uItextBox_QF_SN码校验.Text_Lable1_标识 = "SN码校验";
             this.uItextBox_QF_SN码校验.textAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.uItextBox_QF_SN码校验.TextAlign_单位 = System.Drawing.ContentAlignment.MiddleLeft;
