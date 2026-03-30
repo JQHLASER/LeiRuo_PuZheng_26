@@ -157,7 +157,7 @@ namespace myappdll
                 文件.打印标签_箱 = this.uIcombobox_QF_打印标签_箱.uiComboBox1.SelectedText;
 
                 文件.读码图像名称 = this.uItextBox_QF_读码图像.Text;
-                文件.读码指令 = this.uItextBox_QF_读码指令.Text;
+                文件.读码指令 = this.uItextBox_QF_读码指令_切换模板.Text;
 
                 this.gj_sys.gj_sys.读写文件(0, this.文件名, ref 文件, out string msgErr);
                 显示();
@@ -223,7 +223,7 @@ namespace myappdll
             this.uIcombobox_QF_打印标签_箱.uiComboBox1.SelectedIndex = this.uIcombobox_QF_打印标签_拖.uiComboBox1.Items.IndexOf(文件.打印标签_箱);
             this.uItextBox_QF_读码图像.Text = 文件.读码图像名称;
 
-            this.uItextBox_QF_读码指令.Text = 文件.读码指令;
+            this.uItextBox_QF_读码指令_切换模板.Text = 文件.读码指令;
 
             this.uItextBox_QF_机台代码.Text = 文件.机台代码;
 
@@ -251,7 +251,7 @@ namespace myappdll
 
             this.uIcombobox_QF_打印标签_箱.uiComboBox1.SelectedIndex = -1;
             this.uItextBox_QF_读码图像.Text = "";
-            this.uItextBox_QF_读码指令.Text = 读码器.Config.参数.启动读码;
+            this.uItextBox_QF_读码指令_切换模板.Text = 读码器.Config.参数.启动读码;
             this.uItextBox_QF_机台代码.Text = "";
         }
 
@@ -266,6 +266,14 @@ namespace myappdll
             this.文件名 = 文件名_;
             this.Encod_sys = Encod_sys_;
             forms = this;
+
+            this.uItextBox_QF_码长度.Visible = 系统类_myApp.Config.参数.使能_手持扫码枪;
+            this.uItextBox_QF_读码指令_切换模板.Visible = !系统类_myApp.Config.参数.使能_手持扫码枪;
+       
+
+
+
+
         }
 
         private void Form_工件_设置_Load(object sender, EventArgs e)
