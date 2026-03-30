@@ -34,8 +34,13 @@ namespace myappdll
             tcp_sys.Config.参数.Port = 9004;
             tcp_sys.参数读写(1);
 
-            tcp_sys.Action_接收数据 += (data) => On_接收数据(data);
-            jm_sys.Action_0 += async (data) => await on_扫码处理_jm(data);
+
+            tcp_sys.Action_接收数据 += async (data) => await on_扫码处理_jm(data);
+           
+
+
+            //tcp_sys.Action_接收数据 += (data) => On_接收数据(data);
+            //jm_sys.Action_0 += async (data) => await on_扫码处理_jm(data);
 
             tcp_sys.Connect连接Async();
 
