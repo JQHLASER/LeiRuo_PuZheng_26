@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sunny25.Win32;
@@ -29,9 +29,18 @@ namespace myappdll
                     var rtJson = JToken.Parse(jsonStr);
                     var rtMes = JsonConvert.DeserializeObject<mes_数据结构._反馈_>(msg);
                     msg = rtMes.msg;
+                    int a = 0;
+                    foreach (var item in rtMes.snlist)
+                    {
+                        if (a == 0)
+                            msg += ",不良SN："; 
+                        msg += $"{item}";
+                    }
+
+
                     rt = rtMes.code == 0
                         ? true : false;
-                    sn=rtMes.snlist;
+                    sn = rtMes.snlist;
                 }
                 catch (Exception ex)
                 {
@@ -39,7 +48,7 @@ namespace myappdll
                     msg = ex.ToString();
                 }
             }
-            return (rt, msg,sn);
+            return (rt, msg, sn);
         }
 
 
