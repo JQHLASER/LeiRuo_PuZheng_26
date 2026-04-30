@@ -21,7 +21,7 @@ namespace myappdll
             string jsonStrLog = JsonConvert.SerializeObject(info, Formatting.Indented);
             Log.Add(true, $"mes请求...{jsonStrLog}");
             var rt = new mainclassqf.http请求_25().请求(mainclassqf.http请求_25.enum请求方式.Post, url, null, jsonStr, out string msg);
-            Log.Add(true, $"mes接收...{msg}");
+          
             if (rt)
             {
                 try
@@ -47,6 +47,8 @@ namespace myappdll
                     msg = ex.ToString();
                 }
             }
+
+            Log.Add(rt, $"mes接收...{msg}");
             return (rt, msg, sn);
         }
 
