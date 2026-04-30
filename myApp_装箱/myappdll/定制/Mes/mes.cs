@@ -36,8 +36,7 @@ namespace myappdll
                             msg += ",不良SN："; 
                         msg += $"{item}";
                     }
-
-
+                     
                     rt = rtMes.code == 0
                         ? true : false;
                     sn = rtMes.snlist;
