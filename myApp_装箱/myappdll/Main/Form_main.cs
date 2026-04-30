@@ -88,7 +88,7 @@ namespace myappdll
             显示.加工条(Sunny25.LED_显示条.enum状态.None默认, "");
 
             系统类_myApp.Initiall(1);
-            打印.初始化();
+           
             Csv.初始化();
             点检样件.Cfg(1);
 

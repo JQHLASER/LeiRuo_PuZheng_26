@@ -66,7 +66,7 @@ namespace myappdll
             主窗体控件处理();
             Log.初始化();
             Err.初始化();
-
+            打印.初始化();
 
 
 
@@ -83,6 +83,7 @@ namespace myappdll
             读码器.释放();
             dataBase.释放();
             手持扫码枪.释放();
+            打印.释放();
         }
 
 
@@ -188,7 +189,7 @@ namespace myappdll
                         Task t2 = Task.Run(() => { dataBase.初始化(); });
                         Task t3 = Task.Run(() => {   手持扫码枪.初始化();  });
                         //Task.Run(() => { });
-
+                       
                         await Task.WhenAll(t1, t2,t3);
                         new Thread(() => { 工件.启动时自动加载工件(); }) { IsBackground = true }.Start();
 

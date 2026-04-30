@@ -14,10 +14,12 @@ namespace myappdll
     internal class 工件
     {
         internal static 文件 gj_sys = new 文件(申明.myForm25_sys, 编码.Encode_sys);
-         
+
+       
+
         internal static void 初始化()
         {
-           
+
             gj_sys = new 文件(申明.myForm25_sys, 编码.Encode_sys);
             gj_sys.Action_加载文件失败输出报警 += 加载文件失败输出报警;
             gj_sys.Action_Log += log_;
@@ -28,7 +30,7 @@ namespace myappdll
 
         internal static void 启动时自动加载工件()
         {
-          
+
             if (gj_sys is null || isInistiall)
             {
                 return;
@@ -113,7 +115,17 @@ namespace myappdll
                 {
                     rt = 读码器.切换模板();
                 }
-             
+
+                //Form_main.form_Main.Invoke((Action)(() =>
+                //{
+                //    var path = 打印.生成路径(gj_sys.Config.文件.打印标签_拖);
+                //    rt = 打印.打开_btw(path, out string msgErr);
+                //    if (rt)
+                //    {
+                //        path = 打印.生成路径(gj_sys.Config.文件.打印标签_箱);
+                //        rt = 打印.打开_btw(path, out msgErr);
+                //    }
+                //}));
             }
 
             return rt;

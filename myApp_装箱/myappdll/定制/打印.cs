@@ -1,10 +1,15 @@
 ﻿using MarkAPI;
+using myappdll;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Ink;
+using System.Windows.Shapes;
 
 namespace myappdll
 {
@@ -27,17 +32,32 @@ namespace myappdll
             /// </summary>
             public static int 工作状态 { set; get; } = 0;
         }
-         
+        static mainIndustryqf.BarTender_打印 print = new mainIndustryqf.BarTender_打印();
 
         internal static void 初始化()
         {
             new mainclassqf.文件_文件夹().文件夹_不存在时新建(Config.file_存放模板);
             //  print_sys.BarTender_sys.初始化();
-
+            print.初始化();
+            _Inistall = true;
         }
+
+        static bool _Inistall = false;
+        internal static void 释放()
+        {
+            if (!_Inistall)
+                return;
+            //print.关闭btw();
+            print.释放(out string msgErr);
+            print.释放进程();
+        }
+
+
 
         internal static void 标题栏状态()
         {
+            if (!_Inistall)
+                return;
             List<string[]> lst = new List<string[]>();
             lst.Add(new string[] { "10", "加载打印文件中" });
             lst.Add(new string[] { "11", "打印机打印中" });
@@ -92,7 +112,7 @@ namespace myappdll
                     }
                     else if (s == "打开")
                     {
-                        rt = new mainIndustryqf.BarTender_打印().打开(path, null, null, out msgErr);
+                        rt = print.打开(path, null, null, out msgErr,false );
                     }
                 }
 
@@ -149,7 +169,7 @@ namespace myappdll
                     info.判断修改内容结果 = true;
                     info.打印张数 = 1;
                     info.pic = null;
-                    rt = new mainIndustryqf.BarTender_打印().打印(path, beff, info, out msgErr);
+                    rt = print.打印(path, beff, info, out msgErr, false , false);
                 }
             }
 
@@ -172,5 +192,11 @@ namespace myappdll
         }
 
 
+
+
+
+
     }
 }
+ 
+ 
