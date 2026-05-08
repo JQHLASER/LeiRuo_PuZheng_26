@@ -12,16 +12,16 @@ namespace myappdll
 {
     internal class mes
     {
-
-        internal static (bool s, string m, string[] 不良SN) 上传(mes_数据结构._上传_ info)
+        static mainclassqf.http请求_25 mes_sys = new mainclassqf.http请求_25();
+        internal static (bool s, string m, string[] 不良SN, string msg) 上传(mes_数据结构._上传_ info)
         {
             string[] sn = new string[0];
             string url = 系统类_myApp.Config.参数.Mes_Url;
             string jsonStr = JsonConvert.SerializeObject(info);
             string jsonStrLog = JsonConvert.SerializeObject(info, Formatting.Indented);
             Log.Add(true, $"mes请求...{jsonStrLog}");
-            var rt = new mainclassqf.http请求_25().请求(mainclassqf.http请求_25.enum请求方式.Post, url, null, jsonStr, out string msg);
-          
+            var rt = mes_sys.请求(mainclassqf.http请求_25.enum请求方式.Post, url, null, jsonStr, out string msg, 1000 * 60);
+            string msg原 = "";
             if (rt)
             {
                 try
@@ -33,10 +33,10 @@ namespace myappdll
                     foreach (var item in rtMes.snlist)
                     {
                         if (a == 0)
-                            msg += ",不良SN："; 
+                            msg += ",不良SN：";
                         msg += $"{item}";
                     }
-                     
+
                     rt = rtMes.code == 0
                         ? true : false;
                     sn = rtMes.snlist;
@@ -49,7 +49,7 @@ namespace myappdll
             }
 
             Log.Add(rt, $"mes接收...{msg}");
-            return (rt, msg, sn);
+            return (rt, msg, sn, msg原);
         }
 
 

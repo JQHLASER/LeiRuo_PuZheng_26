@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main));
-            Sunny25.Draw画布.字体类 字体类7 = new Sunny25.Draw画布.字体类();
-            Sunny25.Draw画布.字体类 字体类8 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类1 = new Sunny25.Draw画布.字体类();
+            Sunny25.Draw画布.字体类 字体类2 = new Sunny25.Draw画布.字体类();
             this.功能栏1 = new Sunny25.功能栏();
             this.菜单栏_main = new Sunny25.工具栏();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -69,13 +69,14 @@
             this.uiButton_尾料 = new Sunny25.UIButton();
             this.uiButton_复位 = new Sunny25.UIButton();
             this.uiButton_清空读码 = new Sunny25.UIButton();
+            this.label_手持扫码枪_扫码计数 = new System.Windows.Forms.Label();
             this.uI_Led25_复位 = new Sunny25.UI_Led25();
             this.uI_Led25_启动 = new Sunny25.UI_Led25();
             this.三色灯_三色灯 = new Sunny25.Control25.三色灯();
             this.uiPanel_工作区_中 = new Sunny25.UIPanel();
             this.draw画布_工作区 = new Sunny25.Draw画布();
             this.uI_软件信息1 = new Sunny25.UI_软件信息(this.components);
-            this.label_手持扫码枪_扫码计数 = new System.Windows.Forms.Label();
+            this.mES测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.菜单栏_main.SuspendLayout();
             this.tableLayoutPanel_工作区.SuspendLayout();
             this.uiPanel_工作区_右.SuspendLayout();
@@ -237,7 +238,8 @@
             this.读码器ToolStripMenuItem,
             this.打印ToolStripMenuItem,
             this.加工ToolStripMenuItem,
-            this.图像标注ToolStripMenuItem});
+            this.图像标注ToolStripMenuItem,
+            this.mES测试ToolStripMenuItem});
             this.toolStripDropDownButton_测试.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton_测试.Image")));
             this.toolStripDropDownButton_测试.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton_测试.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
@@ -248,28 +250,28 @@
             // 读码器ToolStripMenuItem
             // 
             this.读码器ToolStripMenuItem.Name = "读码器ToolStripMenuItem";
-            this.读码器ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.读码器ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.读码器ToolStripMenuItem.Text = "读码器";
             this.读码器ToolStripMenuItem.Click += new System.EventHandler(this.读码器ToolStripMenuItem_Click);
             // 
             // 打印ToolStripMenuItem
             // 
             this.打印ToolStripMenuItem.Name = "打印ToolStripMenuItem";
-            this.打印ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.打印ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.打印ToolStripMenuItem.Text = "打印";
             this.打印ToolStripMenuItem.Click += new System.EventHandler(this.打印ToolStripMenuItem_Click);
             // 
             // 加工ToolStripMenuItem
             // 
             this.加工ToolStripMenuItem.Name = "加工ToolStripMenuItem";
-            this.加工ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.加工ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.加工ToolStripMenuItem.Text = "加工";
             this.加工ToolStripMenuItem.Click += new System.EventHandler(this.加工ToolStripMenuItem_Click);
             // 
             // 图像标注ToolStripMenuItem
             // 
             this.图像标注ToolStripMenuItem.Name = "图像标注ToolStripMenuItem";
-            this.图像标注ToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.图像标注ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.图像标注ToolStripMenuItem.Text = "图像标注";
             this.图像标注ToolStripMenuItem.Click += new System.EventHandler(this.图像标注ToolStripMenuItem_Click);
             // 
@@ -555,6 +557,19 @@
             this.uiButton_清空读码.TabIndex = 4;
             this.uiButton_清空读码.Text = "清空扫码";
             // 
+            // label_手持扫码枪_扫码计数
+            // 
+            this.label_手持扫码枪_扫码计数.BackColor = System.Drawing.Color.Black;
+            this.label_手持扫码枪_扫码计数.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label_手持扫码枪_扫码计数.Font = new System.Drawing.Font("微软雅黑", 25.04348F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_手持扫码枪_扫码计数.ForeColor = System.Drawing.Color.White;
+            this.label_手持扫码枪_扫码计数.Location = new System.Drawing.Point(2, 479);
+            this.label_手持扫码枪_扫码计数.Name = "label_手持扫码枪_扫码计数";
+            this.label_手持扫码枪_扫码计数.Size = new System.Drawing.Size(86, 60);
+            this.label_手持扫码枪_扫码计数.TabIndex = 6;
+            this.label_手持扫码枪_扫码计数.Text = "99";
+            this.label_手持扫码枪_扫码计数.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // uI_Led25_复位
             // 
             this.uI_Led25_复位.BackColor = System.Drawing.Color.Transparent;
@@ -662,11 +677,11 @@
             this.draw画布_工作区.上_top边距 = 2;
             this.draw画布_工作区.使能_滚动条_X = true;
             this.draw画布_工作区.使能_滚动条_Y = true;
-            字体类7.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            字体类8.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类1.fonts = new System.Drawing.Font("新宋体", 15.02609F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            字体类2.fonts = new System.Drawing.Font("新宋体", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.draw画布_工作区.字体 = new Sunny25.Draw画布.字体类[] {
-        字体类7,
-        字体类8};
+        字体类1,
+        字体类2};
             this.draw画布_工作区.左_left边距 = 0;
             this.draw画布_工作区.控件边距_X = 20;
             this.draw画布_工作区.控件边距_Y = 20;
@@ -701,18 +716,12 @@
             this.uI_软件信息1.版本 = "<读码装箱>QF2511.1";
             this.uI_软件信息1.语言翻译 = false;
             // 
-            // label_手持扫码枪_扫码计数
+            // mES测试ToolStripMenuItem
             // 
-            this.label_手持扫码枪_扫码计数.BackColor = System.Drawing.Color.Black;
-            this.label_手持扫码枪_扫码计数.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label_手持扫码枪_扫码计数.Font = new System.Drawing.Font("微软雅黑", 25.04348F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_手持扫码枪_扫码计数.ForeColor = System.Drawing.Color.White;
-            this.label_手持扫码枪_扫码计数.Location = new System.Drawing.Point(2, 479);
-            this.label_手持扫码枪_扫码计数.Name = "label_手持扫码枪_扫码计数";
-            this.label_手持扫码枪_扫码计数.Size = new System.Drawing.Size(86, 60);
-            this.label_手持扫码枪_扫码计数.TabIndex = 6;
-            this.label_手持扫码枪_扫码计数.Text = "99";
-            this.label_手持扫码枪_扫码计数.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mES测试ToolStripMenuItem.Name = "mES测试ToolStripMenuItem";
+            this.mES测试ToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.mES测试ToolStripMenuItem.Text = "MES测试";
+            this.mES测试ToolStripMenuItem.Click += new System.EventHandler(this.mES测试ToolStripMenuItem_Click);
             // 
             // Form_main
             // 
@@ -795,5 +804,6 @@
         public Sunny25.UIButton uiButton_清空读码;
         public System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
         public System.Windows.Forms.Label label_手持扫码枪_扫码计数;
+        private System.Windows.Forms.ToolStripMenuItem mES测试ToolStripMenuItem;
     }
 }

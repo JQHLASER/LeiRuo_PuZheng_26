@@ -900,11 +900,18 @@ namespace myappdll
             if (索引 >= lst原始码.Count)
                 return;
 
-            图像.info_绘制信息_ info_Draw = 工件.gj_sys.Config.文件.图像标注参数[索引];
-            Form_main.form_Main.Invoke(new Action(() =>
+            try
             {
-                new Form_图像标注_显示(工件.gj_sys.Config.文件.读码图像名称, new 图像.info_绘制信息_[] { info_Draw }, 错误信息).ShowDialog(Form_main.form_Main);
-            }));
+                图像.info_绘制信息_ info_Draw = 工件.gj_sys.Config.文件.图像标注参数[索引];
+                Form_main.form_Main.Invoke(new Action(() =>
+                {
+                    new Form_图像标注_显示(工件.gj_sys.Config.文件.读码图像名称, new 图像.info_绘制信息_[] { info_Draw }, 错误信息).ShowDialog(Form_main.form_Main);
+                }));
+            }
+            catch (Exception)
+            {  
+               
+            }
 
         }
         #endregion

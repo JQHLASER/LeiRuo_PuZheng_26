@@ -254,7 +254,13 @@ namespace myappdll
                 return;
             }
 
-            this.lst_main.RemoveAt(index_选中行);
+            try
+            {
+                this.lst_main.RemoveAt(index_选中行);
+            }
+            catch (Exception)
+            {   
+            }
             显示();
 
 

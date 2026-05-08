@@ -47,7 +47,7 @@ namespace myappdll
 
             this.系统设置ToolStripMenuItem.Click += (s, e) =>
             {
-                if (用户_ .user_sys .Config .当前登陆的用户信息 .权限<=用户.enum权限.技术员   )
+                if (用户_.user_sys.Config.当前登陆的用户信息.权限 <= 用户.enum权限.技术员)
                 {
                     MessageBox.Show("用户权限低", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -61,13 +61,13 @@ namespace myappdll
             };
             this.uiButton_清空读码.Click += (s, e) =>
             {
-                if (MessageBox .Show ("是否清空手持扫码枪读码内容?", "",MessageBoxButtons.YesNo )==DialogResult.No )
+                if (MessageBox.Show("是否清空手持扫码枪读码内容?", "", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;
                 }
                 手持扫码枪._读码内容.Clear();
-                Log.Add(true, $"手动,清空手持扫码检读码内容");  
-            }; 
+                Log.Add(true, $"手动,清空手持扫码检读码内容");
+            };
         }
 
         private void Form_main_Load(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace myappdll
             显示.加工条(Sunny25.LED_显示条.enum状态.None默认, "");
 
             系统类_myApp.Initiall(1);
-           
+
             Csv.初始化();
             点检样件.Cfg(1);
 
@@ -313,6 +313,41 @@ namespace myappdll
                 forms.ShowDialog();
 
             }
+        }
+
+        private void mES测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var rt = mes.上传(new mes_数据结构._上传_()
+            {
+                lineNm = 系统类_myApp.Config.参数.设备编号 ,
+                datetime=DateTime .Now.ToString("yyyy-MM-dd HH:mm:ss") ,
+                data=new mes_数据结构._data_[]
+                {
+                 new mes_数据结构._data_
+                 {
+                     Nds =  "TEST-31293-1",
+                     codeBox = "TEST-X-004#20260625210006",
+                     codeDrop= "TEST-T-20260625004#210006",
+                     sn=new string []
+                     {
+                          "TEST6S521000228",
+                          "TEST6S521000226",
+                          "TEST6S521000224",
+                          "TEST6S521000206",
+                          "TEST6S521000217",
+                          "TEST6S521000219",
+                          "TEST6S521000218",
+                          "TEST6S521000223"
+                     }
+                 }
+                }
+            });
+            string state = rt.s ? $"OK" : $"NG,{rt.m}";
+            Log.Add(rt.s, $"<MES,测试>{state}");
+
+
+            
+       
         }
     }
 }
