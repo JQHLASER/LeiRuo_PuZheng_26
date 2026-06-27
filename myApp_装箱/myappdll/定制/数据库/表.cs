@@ -2,12 +2,16 @@
 using SqlSugar;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace myappdll
 {
+    /// <summary>
+    /// SQLserver
+    /// </summary>
     internal class 表
     {
         /// <summary>
@@ -33,6 +37,8 @@ namespace myappdll
             public string 备注 { set; get; } = "";
 
         }
+
+       
 
 
         /*
@@ -65,7 +71,7 @@ namespace myappdll
          */
 
 
-
+     
 
 
 
