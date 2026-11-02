@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace myappdll
@@ -41,10 +43,31 @@ namespace myappdll
 
         private static string[] 取最近点检数据(string text)
         {
-            string[] data = text.Split(new string[] { "\r\n", "\n", "\r" },
-                StringSplitOptions.RemoveEmptyEntries);
+            HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
+            string[] data = 读取条码行(text).Where(value => seen.Add(value)).ToArray();
             return data.Length > 点检数据上限
                 ? data.Skip(data.Length - 点检数据上限).ToArray() : data;
+        }
+
+        private static IEnumerable<string> 读取条码行(string text)
+        {
+            return text.Split(new string[] { "\r\n", "\n", "\r" }, StringSplitOptions.None)
+                .Select(清理条码).Where(value => value.Length > 0);
+        }
+
+        private static string 清理条码(string text)
+        {
+            StringBuilder result = new StringBuilder(text.Length);
+            foreach (char value in text)
+            {
+                // 清除空白、控制字符及零宽字符/BOM 等不可见格式字符，保留有效符号和大小写。
+                if (!char.IsWhiteSpace(value) && !char.IsControl(value) &&
+                    char.GetUnicodeCategory(value) != UnicodeCategory.Format)
+                {
+                    result.Append(value);
+                }
+            }
+            return result.ToString();
         }
 
         private void uiButton_添加_Click(object sender, EventArgs e)
@@ -59,7 +82,7 @@ namespace myappdll
                     return;
                 }
 
-                string value = form.Editor.Text.Trim();
+                string value = 清理条码(form.Editor.Text);
                 if (string.IsNullOrEmpty(value))
                 {
                     Sunny25.Messagebox.Show("点检数据不能为空");
@@ -67,6 +90,12 @@ namespace myappdll
                 }
 
                 string text = this.uiTextBox1.Text;
+                if (读取条码行(text).Contains(value, StringComparer.Ordinal))
+                {
+                    Sunny25.Messagebox.Show("该条码已存在，不能重复添加");
+                    return;
+                }
+
                 string separator = text.Length > 0 && !text.EndsWith("\n") && !text.EndsWith("\r")
                     ? "\r\n" : string.Empty;
                 this.uiTextBox1.Text = string.Join("\r\n", 取最近点检数据(text + separator + value));

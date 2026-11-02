@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -37,9 +38,16 @@ namespace myappdll
         internal static void 初始化()
         {
             new mainclassqf.文件_文件夹().文件夹_不存在时新建(Config.file_存放模板);
-            //  print_sys.BarTender_sys.初始化();
-            print.初始化();
-            _Inistall = true;
+            try
+            {
+                print.初始化();
+                _Inistall = true;
+            }
+            catch (COMException ex) when (ex.ErrorCode == unchecked((int)0x80040154))
+            {
+                // 未安装或未注册 BarTender 时允许程序继续启动。
+                _Inistall = false;
+            }
         }
 
         static bool _Inistall = false;
@@ -96,7 +104,12 @@ namespace myappdll
                     {
                         #region Err
 
-                        if (string.IsNullOrEmpty(文件名))
+                        if (!_Inistall)
+                        {
+                            msgErr = "BarTender 未初始化，请先安装并注册 BarTender";
+                            rt = false;
+                        }
+                        else if (string.IsNullOrEmpty(文件名))
                         {
                             msgErr = "文件名不能为空";
                             rt = false;
@@ -150,7 +163,12 @@ namespace myappdll
                 {
                     #region Err
 
-                    if (string.IsNullOrEmpty(文件名))
+                    if (!_Inistall)
+                    {
+                        msgErr = "BarTender 未初始化，请先安装并注册 BarTender";
+                        rt = false;
+                    }
+                    else if (string.IsNullOrEmpty(文件名))
                     {
                         msgErr = "文件名不能为空";
                         rt = false;
@@ -198,5 +216,3 @@ namespace myappdll
 
     }
 }
- 
- 
